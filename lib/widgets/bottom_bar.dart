@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 import 'package:metops/utils/colors.dart';
@@ -35,11 +33,11 @@ class _BottomBarState extends State<BottomBar> {
     final double _radius = kBottomNavigationBarHeight / 2;
 
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.only(left: 10, right: 10),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(_radius)),
         child: BottomNavigationBar(
-          currentIndex: screenIndex,
+          currentIndex: 0, //state management
           onTap: bindScreens,
           showSelectedLabels: false,
           showUnselectedLabels: false,
