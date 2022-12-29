@@ -34,39 +34,32 @@ class _BottomBarState extends State<BottomBar> {
   Widget build(BuildContext context) {
     final double _radius = kBottomNavigationBarHeight / 2;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('MetOps'),
-      ),
-      body: screens[screenIndex],
-      extendBody: true,
-      bottomNavigationBar: Container(
-        margin: EdgeInsets.all(10),
-        child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(_radius)),
-          child: BottomNavigationBar(
-            currentIndex: screenIndex,
-            onTap: bindScreens,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            backgroundColor: primary,
-            selectedItemColor: neutral,
-            unselectedItemColor: accent,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.search),
-                label: 'Query',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.dashboard),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.receipt),
-                label: 'Records',
-              ),
-            ],
-          ),
+    return Container(
+      margin: EdgeInsets.all(10),
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(_radius)),
+        child: BottomNavigationBar(
+          currentIndex: screenIndex,
+          onTap: bindScreens,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          backgroundColor: primary,
+          selectedItemColor: neutral,
+          unselectedItemColor: accent,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Query',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.dashboard),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.receipt),
+              label: 'Records',
+            ),
+          ],
         ),
       ),
     );
