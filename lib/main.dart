@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:metops/screens/scaffold_custom.dart';
+import 'package:metops/screens/main_screen.dart';
 import 'package:metops/utils/colors.dart';
 
 void main() {

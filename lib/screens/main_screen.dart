@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:metops/widgets/app_bar.dart';
-import 'package:metops/widgets/bottom_bar.dart';
-import 'package:metops/widgets/drawer.dart';
+import '../widgets/app_bar.dart';
+import '../widgets/bottom_bar.dart';
+import '../widgets/drawer.dart';
+import './dashboard.dart';
+import './query.dart';
+import './records.dart';
 
 class ScaffoldCustom extends StatefulWidget {
   const ScaffoldCustom({super.key});
@@ -12,11 +15,7 @@ class ScaffoldCustom extends StatefulWidget {
 }
 
 class _ScaffoldCustomState extends State<ScaffoldCustom> {
-  final List<Widget?> _screens = [
-    Text("Query"),
-    Text("Dashboard"),
-    Text("Records")
-  ];
+  final List<Widget?> _screens = [Query(), Dashboard(), Records()];
   var _screenIndex = 0;
 
   void _bindScreens(int index) {
