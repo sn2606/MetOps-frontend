@@ -12,7 +12,11 @@ class ScaffoldCustom extends StatefulWidget {
 }
 
 class _ScaffoldCustomState extends State<ScaffoldCustom> {
-  final List<Widget?> _screens = [null, null, null];
+  final List<Widget?> _screens = [
+    Text("Query"),
+    Text("Dashboard"),
+    Text("Records")
+  ];
   var _screenIndex = 0;
 
   void _bindScreens(int index) {

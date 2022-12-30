@@ -38,7 +38,7 @@ class _BottomBarState extends State<BottomBar> {
         borderRadius: BorderRadius.all(Radius.circular(_radius)),
         child: BottomNavigationBar(
           // iconSize: 20,
-          currentIndex: 0, //state management
+          currentIndex: screenIndex, //state management
           onTap: bindScreens,
           showSelectedLabels: false,
           showUnselectedLabels: false,
