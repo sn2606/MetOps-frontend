@@ -19,9 +19,9 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
-  final int screenIndex;
+  int screenIndex;
   final void Function(int) bindScreens;
-  final List<Widget?> screens;
+  List<Widget?> screens;
 
   _BottomBarState(
       {required this.screenIndex,
