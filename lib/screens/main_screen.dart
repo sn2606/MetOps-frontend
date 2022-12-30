@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/app_bar.dart';
-import '../widgets/bottom_bar.dart';
-import '../widgets/drawer.dart';
+import '../widgets/scaffold/app_bar.dart';
+import '../widgets/scaffold/bottom_bar.dart';
+import '../widgets/scaffold/drawer.dart';
 import './dashboard.dart';
 import './query.dart';
 import './records.dart';
