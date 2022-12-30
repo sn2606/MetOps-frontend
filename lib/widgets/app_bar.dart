@@ -20,6 +20,7 @@ class _AppBarCustomState extends State<AppBarCustom> {
       child: AppBar(
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: neutral,
+          statusBarIconBrightness: Brightness.dark,
         ),
         backgroundColor: neutral,
         elevation: 0,

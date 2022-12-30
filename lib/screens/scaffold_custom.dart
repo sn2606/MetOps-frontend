@@ -27,7 +27,6 @@ class _ScaffoldCustomState extends State<ScaffoldCustom> {
       appBar: AppBarCustom(),
       drawer: DrawerCustom(),
       body: _screens[_screenIndex],
-      extendBody: true,
       bottomNavigationBar: BottomBar(
         screenIndex: _screenIndex,
         bindScreens: _bindScreens,
