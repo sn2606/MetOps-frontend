@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/render_image.dart';
 import '../widgets/navigation_btn.dart';
 import '../widgets/title_text.dart';
 import '../widgets/dashboard/add_button.dart';
@@ -18,53 +19,110 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      height: MediaQuery.of(context).size.height,
+      child: Stack(
         children: [
-          Container(
-            width: double.infinity,
-            margin: EdgeInsets.only(left: 25, right: 25, top: 90),
+          Positioned(
+            top: -60,
+            left: 114,
+            height: 332,
+            width: 330,
+            child: RenderImage(
+              path: 'assets/images/windy.png',
+              alignment: Alignment.center,
+            ),
+          ),
+          Positioned(
+            bottom: 25,
+            right: 10,
+            height: 45,
+            width: 45,
+            child: RenderImage(
+              path: 'assets/images/snowflake1.png',
+              alignment: Alignment.center,
+            ),
+          ),
+          Positioned(
+            bottom: 100,
+            left: 40,
+            height: 35,
+            width: 35,
+            child: RenderImage(
+              path: 'assets/images/snowflake2.png',
+              alignment: Alignment.center,
+            ),
+          ),
+          Positioned(
+            top: 30,
+            left: 55,
+            height: 35,
+            width: 35,
+            child: RenderImage(
+              path: 'assets/images/snowflake3.png',
+              alignment: Alignment.center,
+            ),
+          ),
+          Positioned(
+            top: 180,
+            left: 0,
+            height: 45,
+            width: 45,
+            child: RenderImage(
+              path: 'assets/images/snowflake4.png',
+              alignment: Alignment.centerLeft,
+            ),
+          ),
+          Positioned(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TitleText(title: 'Hello, Operator!'),
                 Container(
-                  margin: EdgeInsets.only(top: 15),
-                  child: Text(
-                    'Welcome back to MetOps',
-                    style: TextStyle(
-                      color: primary,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
+                  width: double.infinity,
+                  margin: EdgeInsets.only(left: 25, right: 25, top: 90),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TitleText(title: 'Hello, Operator!'),
+                      Container(
+                        margin: EdgeInsets.only(top: 15),
+                        child: Text(
+                          'Welcome back to MetOps',
+                          style: TextStyle(
+                            color: primary,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 25, right: 25),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                DashCard(
-                  type: 'info',
-                  content: WeatherInfo(),
+                Container(
+                  margin: EdgeInsets.only(left: 25, right: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      DashCard(
+                        type: 'info',
+                        content: WeatherInfo(),
+                      ),
+                      DashCard(
+                        type: 'add',
+                        content: AddButton(),
+                      ),
+                    ],
+                  ),
                 ),
-                DashCard(
-                  type: 'add',
-                  content: AddButton(),
+                Container(
+                  margin: EdgeInsets.only(left: 25, right: 25, bottom: 40),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      NavigationButton(title: 'Observation History'),
+                      NavigationButton(title: 'Guidelines'),
+                    ],
+                  ),
                 ),
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 25, right: 25, bottom: 40),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                NavigationButton(title: 'Observation History'),
-                NavigationButton(title: 'Guidelines'),
               ],
             ),
           ),
