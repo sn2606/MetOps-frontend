@@ -17,8 +17,6 @@ class Query extends StatefulWidget {
 class _QueryState extends State<Query> {
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
-
     return Container(
       height: MediaQuery.of(context).size.height,
       child: Stack(
