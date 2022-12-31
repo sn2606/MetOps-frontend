@@ -48,15 +48,7 @@ flutter_icons:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/arctic.svg
-    - assets/images/constellation.svg
-    - assets/images/satellite.svg
-    - assets/images/snowflake1.svg
-    - assets/images/snowflake2.svg
-    - assets/images/snowflake3.svg
-    - assets/images/snowflake4.svg
-    - assets/images/topographic.svg
-    - assets/images/windy.svg
+    - assets/images/
   fonts:
     - family: Montserrat
       fonts:
