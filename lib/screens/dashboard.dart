@@ -18,12 +18,12 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 25, right: 25, top: 90),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
             width: double.infinity,
+            margin: EdgeInsets.only(left: 25, right: 25, top: 90),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -43,6 +43,7 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
           Container(
+            margin: EdgeInsets.only(left: 25, right: 25),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -58,7 +59,7 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(bottom: 40),
+            margin: EdgeInsets.only(left: 25, right: 25, bottom: 40),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
