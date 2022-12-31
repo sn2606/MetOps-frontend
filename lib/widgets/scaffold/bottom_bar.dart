@@ -37,7 +37,7 @@ class _BottomBarState extends State<BottomBar> {
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(_radius)),
         child: BottomNavigationBar(
-          // iconSize: 20,
+          type: BottomNavigationBarType.fixed,
           currentIndex: screenIndex, //state management
           onTap: bindScreens,
           showSelectedLabels: false,

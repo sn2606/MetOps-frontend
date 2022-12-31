@@ -5,7 +5,7 @@ import 'package:metops/screens/main_screen.dart';
 import 'package:metops/utils/colors.dart';
 
 void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor: neutral,
     systemNavigationBarIconBrightness: Brightness.dark,
