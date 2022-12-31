@@ -16,7 +16,7 @@ class ScaffoldCustom extends StatefulWidget {
 
 class _ScaffoldCustomState extends State<ScaffoldCustom> {
   List<Widget?> _screens = [Query(), Dashboard(), Records()];
-  var _screenIndex = 0;
+  var _screenIndex = 1;
 
   void _bindScreens(int index) {
     setState(() {
