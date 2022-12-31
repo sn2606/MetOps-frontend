@@ -35,7 +35,7 @@ class _AppBarCustomState extends State<AppBarCustom> {
               child: GestureDetector(
                 onTap: () {},
                 child: Icon(
-                  Icons.account_circle_outlined,
+                  Icons.settings_outlined,
                 ),
               )),
         ],

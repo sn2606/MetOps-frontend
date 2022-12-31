@@ -47,16 +47,20 @@ class _BottomBarState extends State<BottomBar> {
           unselectedItemColor: accent,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Query',
-            ),
-            BottomNavigationBarItem(
               icon: Icon(Icons.dashboard),
               label: 'Home',
             ),
             BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Query',
+            ),
+            BottomNavigationBarItem(
               icon: Icon(Icons.receipt),
               label: 'Records',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Account',
             ),
           ],
         ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/title_text.dart';
+
 class Records extends StatefulWidget {
   const Records({super.key});
 
@@ -10,6 +12,12 @@ class Records extends StatefulWidget {
 class _RecordsState extends State<Records> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Column(
+        children: [
+          TitleText(title: 'Records'),
+        ],
+      ),
+    );
   }
 }

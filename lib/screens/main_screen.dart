@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../widgets/scaffold/app_bar.dart';
 import '../widgets/scaffold/bottom_bar.dart';
 import '../widgets/scaffold/drawer.dart';
+import './account.dart';
 import './dashboard.dart';
 import './query.dart';
 import './records.dart';
@@ -15,8 +16,8 @@ class ScaffoldCustom extends StatefulWidget {
 }
 
 class _ScaffoldCustomState extends State<ScaffoldCustom> {
-  List<Widget?> _screens = [Query(), Dashboard(), Records()];
-  var _screenIndex = 1;
+  List<Widget?> _screens = [Dashboard(), Query(), Records(), Account()];
+  var _screenIndex = 0;
 
   void _bindScreens(int index) {
     setState(() {
