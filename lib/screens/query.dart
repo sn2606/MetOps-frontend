@@ -4,7 +4,6 @@ import 'package:metops/widgets/action_btn_outlined.dart';
 import 'package:metops/widgets/query/instruction_text.dart';
 import 'package:metops/widgets/title_text.dart';
 
-import '../utils/colors.dart';
 import '../widgets/query/text_field.dart';
 
 class Query extends StatefulWidget {
