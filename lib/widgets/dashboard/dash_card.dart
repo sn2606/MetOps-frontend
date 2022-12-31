@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:metops/utils/colors.dart';
+import '../../utils/colors.dart';
 
 class DashCard extends StatefulWidget {
   final String type;

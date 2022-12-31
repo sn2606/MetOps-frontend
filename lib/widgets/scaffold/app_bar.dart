@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:metops/utils/colors.dart';
+
+import '../../utils/colors.dart';
 
 class AppBarCustom extends StatefulWidget with PreferredSizeWidget {
   const AppBarCustom({super.key});

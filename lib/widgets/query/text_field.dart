@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:metops/utils/colors.dart';
+
+import '../../utils/colors.dart';
 
 class TextFieldCustom extends StatelessWidget {
   final String hint;
