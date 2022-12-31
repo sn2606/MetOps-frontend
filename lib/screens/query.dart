@@ -5,6 +5,7 @@ import '../widgets/action_btn_outlined.dart';
 import '../widgets/query/instruction_text.dart';
 import '../widgets/title_text.dart';
 import '../widgets/query/text_field.dart';
+import '../widgets/render_image.dart';
 
 class Query extends StatefulWidget {
   const Query({super.key});
@@ -19,7 +20,7 @@ class _QueryState extends State<Query> {
     print(MediaQuery.of(context).size.width);
 
     return Container(
-      height: 800,
+      height: MediaQuery.of(context).size.height,
       child: Stack(
         children: [
           Positioned(
@@ -27,13 +28,9 @@ class _QueryState extends State<Query> {
             left: (MediaQuery.of(context).size.width - 90),
             width: 70,
             height: 70,
-            child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fitHeight,
-                  image: AssetImage('assets/images/constellation.png'),
-                ),
-              ),
+            child: RenderImage(
+              path: 'assets/images/constellation.png',
+              alignment: Alignment.center,
             ),
           ),
           Positioned(
@@ -41,15 +38,9 @@ class _QueryState extends State<Query> {
             left: (MediaQuery.of(context).size.width - 150),
             width: 80,
             height: 80,
-            child: Container(
-              height: 80,
-              width: 80,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage('assets/images/satellite.png'),
-                ),
-              ),
+            child: RenderImage(
+              path: 'assets/images/satellite.png',
+              alignment: Alignment.center,
             ),
           ),
           Positioned(
@@ -57,65 +48,52 @@ class _QueryState extends State<Query> {
             left: 0,
             height: 512,
             width: MediaQuery.of(context).size.width,
-            child: Container(
-              height: 512,
-              child: Stack(
-                children: [
-                  Container(
-                    height: 512,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        alignment: Alignment.centerLeft,
-                        fit: BoxFit.fitHeight,
-                        image: AssetImage('assets/images/arctic.png'),
+            child: Stack(
+              children: [
+                RenderImage(
+                  path: 'assets/images/arctic.png',
+                  alignment: Alignment.centerLeft,
+                ),
+                Column(
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      margin: EdgeInsets.only(left: 25, right: 25, top: 50),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TitleText(
+                            title: 'Location Search',
+                          ),
+                          InstructionText(
+                            text:
+                                'Please enter the coordinates in decimal of the location you wish to search',
+                          ),
+                          InstructionText(
+                            text: 'for e.g. 40.714, -74.006 (New York City)',
+                          ),
+                        ],
                       ),
                     ),
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        width: double.infinity,
-                        margin: EdgeInsets.only(left: 25, right: 25, top: 50),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            TitleText(
-                              title: 'Location Search',
-                            ),
-                            InstructionText(
-                              text:
-                                  'Please enter the coordinates in decimal of the location you wish to search',
-                            ),
-                            InstructionText(
-                              text: 'for e.g. 40.714, -74.006 (New York City)',
-                            ),
-                          ],
-                        ),
+                    Container(
+                      margin: EdgeInsets.only(left: 25, right: 25, top: 50),
+                      child: Row(
+                        children: [
+                          TextFieldCustom(hint: 'Latitude'),
+                          TextFieldCustom(hint: 'Longitude'),
+                        ],
                       ),
-                      Container(
-                        margin: EdgeInsets.only(left: 25, right: 25, top: 50),
-                        child: Row(
-                          children: [
-                            TextFieldCustom(
-                              hint: 'Latitude',
-                            ),
-                            TextFieldCustom(
-                              hint: 'Longitude',
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(left: 25, right: 25, top: 50),
-                        child: Row(children: [
-                          ActionButtonFilled(title: 'Search'),
-                          ActionButtonOutlined(title: 'Cancel')
-                        ]),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 25, right: 25, top: 50),
+                      child: Row(children: [
+                        ActionButtonFilled(title: 'Search'),
+                        ActionButtonOutlined(title: 'Cancel')
+                      ]),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],
