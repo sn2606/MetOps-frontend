@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:metops/screens/main_screen.dart';
-import 'package:metops/utils/colors.dart';
+import './screens/main_screen.dart';
+import './screens/welcome.dart';
+import './utils/colors.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         canvasColor: neutral,
         fontFamily: 'Montserrat',
       ),
-      home: ScaffoldCustom(),
+      home: WelcomePage(),
     );
   }
 }
