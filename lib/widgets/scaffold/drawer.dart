@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../screens/account.dart';
+import '../../screens/main_screen.dart';
 import '../../utils/colors.dart';
 
 class DrawerCustom extends StatelessWidget {
@@ -23,15 +25,10 @@ class DrawerCustom extends StatelessWidget {
               iconColor: neutral,
               onTap: () {
                 Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Settings'),
-              textColor: neutral,
-              leading: Icon(Icons.settings),
-              iconColor: neutral,
-              onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Account()),
+                );
               },
             ),
             ListTile(
@@ -41,6 +38,10 @@ class DrawerCustom extends StatelessWidget {
               iconColor: neutral,
               onTap: () {
                 Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ScaffoldCustom()),
+                );
               },
             ),
             ListTile(
