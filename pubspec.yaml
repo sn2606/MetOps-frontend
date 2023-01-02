@@ -37,20 +37,14 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#0F044C"
-  # image: assets/images/splash.png
-  # branding: assets/images/metops.png
-  # branding_mode: bottom
   android_12:
     color: "#0F044C"
-    # image: assets/images/splash.png
     icon_background_color: "#0F044C"
-    # branding: assets/images/metops.png
-    # branding_mode: bottom
 
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/meteorology.png"
+  image_path: 'assets/icon/icon_foreground.png'
   adaptive_icon_background: 'assets/icon/icon_background.png'
   adaptive_icon_foreground: 'assets/icon/icon_foreground.png'
 
@@ -110,6 +104,3 @@ flutter:
         - asset: assets/fonts/Montserrat-ThinItalic.ttf
           weight: 100
           style: italic
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
