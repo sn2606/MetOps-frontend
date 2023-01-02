@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 import '../widgets/scaffold/app_bar.dart';
 import '../widgets/scaffold/drawer.dart';
-import './account.dart';
 import './dashboard.dart';
 import './query.dart';
 import './records.dart';
