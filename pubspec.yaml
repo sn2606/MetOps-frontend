@@ -27,12 +27,25 @@ dependencies:
     sdk: flutter
   intl: ^0.18.0
   cupertino_icons: ^1.0.2
+  flutter_native_splash: ^2.2.16
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.11.0
   flutter_lints: ^2.0.0
+
+flutter_native_splash:
+  color: "#0F044C"
+  image: assets/images/splash.png
+  branding: assets/images/metops.png
+  branding_mode: bottom
+  android_12:
+    color: "#0F044C"
+    image: assets/images/splash.png
+    icon_background_color: "#0F044C"
+    branding: assets/images/metops.png
+    branding_mode: bottom
 
 flutter_icons:
   android: "launcher_icon"
