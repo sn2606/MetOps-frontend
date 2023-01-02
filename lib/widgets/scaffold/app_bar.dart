@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../utils/colors.dart';
-import '../../screens/settings.dart';
+import '../../screens/account.dart';
 
 class AppBarCustom extends StatefulWidget with PreferredSizeWidget {
   const AppBarCustom({super.key});
@@ -37,16 +37,17 @@ class _AppBarCustomState extends State<AppBarCustom> {
             ),
             padding: EdgeInsets.only(right: 20.0),
             child: InkWell(
+              customBorder: const CircleBorder(),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Settings()),
+                  MaterialPageRoute(builder: (context) => Account()),
                 );
               },
               child: Ink(
                 decoration: const BoxDecoration(shape: BoxShape.circle),
-                height: 25,
-                width: 25,
+                height: 50,
+                width: 50,
                 child: const Icon(
                   Icons.settings_outlined,
                 ),

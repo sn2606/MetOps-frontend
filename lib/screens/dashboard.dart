@@ -118,8 +118,14 @@ class _DashboardState extends State<Dashboard> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      NavigationButton(title: 'Observation History'),
-                      NavigationButton(title: 'Guidelines'),
+                      NavigationButton(
+                        title: 'Observation History',
+                        action: () {},
+                      ),
+                      NavigationButton(
+                        title: 'Guidelines',
+                        action: () {},
+                      ),
                     ],
                   ),
                 ),

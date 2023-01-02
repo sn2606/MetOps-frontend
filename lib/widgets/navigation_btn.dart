@@ -4,8 +4,22 @@ import '../utils/colors.dart';
 
 class NavigationButton extends StatelessWidget {
   final String title;
+  final Color bgColor;
+  final VoidCallback action;
 
-  const NavigationButton({super.key, required this.title});
+  const NavigationButton({
+    super.key,
+    required this.title,
+    required this.action,
+    this.bgColor = secondaryContainer,
+  });
+
+  const NavigationButton.alert({
+    super.key,
+    required this.title,
+    required this.action,
+    this.bgColor = alertContainer,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +28,7 @@ class NavigationButton extends StatelessWidget {
       height: 50,
       margin: EdgeInsets.only(top: 11, bottom: 11),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: action,
         child: Text(title),
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -24,7 +38,7 @@ class NavigationButton extends StatelessWidget {
           ),
           elevation: null,
           shadowColor: null,
-          backgroundColor: MaterialStatePropertyAll<Color>(secondaryContainer),
+          backgroundColor: MaterialStatePropertyAll<Color>(bgColor),
           foregroundColor: MaterialStatePropertyAll<Color>(primary),
           textStyle: MaterialStatePropertyAll<TextStyle>(
             TextStyle(

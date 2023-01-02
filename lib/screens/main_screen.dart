@@ -16,7 +16,7 @@ class ScaffoldCustom extends StatefulWidget {
 }
 
 class _ScaffoldCustomState extends State<ScaffoldCustom> {
-  List<Widget?> _screens = [Dashboard(), Query(), Records(), Account()];
+  List<Widget?> _screens = [Dashboard(), Query(), Records()];
   var _screenIndex = 0;
 
   void _bindScreens(int index) {
@@ -59,10 +59,6 @@ class _ScaffoldCustomState extends State<ScaffoldCustom> {
               BottomNavigationBarItem(
                 icon: Icon(Icons.receipt),
                 label: 'Records',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Account',
               ),
             ],
           ),
