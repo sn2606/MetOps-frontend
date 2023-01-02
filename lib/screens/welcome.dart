@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import './login.dart';
 import '../widgets/command_btn.dart';
 import '../utils/colors.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
+
+  void navigateTo(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +65,10 @@ class WelcomePage extends StatelessWidget {
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 85),
-                        child: CommandButton.light(title: 'Get Started'),
+                        child: CommandButton.light(
+                          title: 'Get Started',
+                          navigate: () => navigateTo(context),
+                        ),
                       )
                     ],
                   ),

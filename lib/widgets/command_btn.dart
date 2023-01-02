@@ -6,18 +6,21 @@ class CommandButton extends StatelessWidget {
   final String title;
   final Color bgColor;
   final Color fgColor;
+  final VoidCallback navigate;
 
   const CommandButton.light({
     super.key,
     this.bgColor = neutral,
     this.fgColor = primary,
     required this.title,
+    required this.navigate,
   });
   const CommandButton.dark({
     super.key,
     this.bgColor = primary,
     this.fgColor = neutral,
     required this.title,
+    required this.navigate,
   });
 
   @override
@@ -27,7 +30,7 @@ class CommandButton extends StatelessWidget {
       height: 40,
       child: ElevatedButton(
         child: Text(title),
-        onPressed: () {},
+        onPressed: navigate,
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
