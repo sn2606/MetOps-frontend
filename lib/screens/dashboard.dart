@@ -33,7 +33,7 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
           Positioned(
-            bottom: 25,
+            top: 550,
             right: 10,
             height: 45,
             width: 45,
@@ -43,7 +43,7 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
           Positioned(
-            bottom: 100,
+            top: 500,
             left: 40,
             height: 35,
             width: 35,
@@ -74,7 +74,6 @@ class _DashboardState extends State<Dashboard> {
           ),
           Positioned(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                   width: double.infinity,
@@ -98,7 +97,7 @@ class _DashboardState extends State<Dashboard> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 25, right: 25),
+                  margin: EdgeInsets.only(left: 25, right: 25, top: 50),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -114,7 +113,8 @@ class _DashboardState extends State<Dashboard> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 25, right: 25, bottom: 40),
+                  margin:
+                      EdgeInsets.only(left: 25, right: 25, top: 50, bottom: 40),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
