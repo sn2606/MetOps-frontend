@@ -37,15 +37,15 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#0F044C"
-  image: assets/images/splash.png
-  branding: assets/images/metops.png
-  branding_mode: bottom
+  # image: assets/images/splash.png
+  # branding: assets/images/metops.png
+  # branding_mode: bottom
   android_12:
     color: "#0F044C"
-    image: assets/images/splash.png
+    # image: assets/images/splash.png
     icon_background_color: "#0F044C"
-    branding: assets/images/metops.png
-    branding_mode: bottom
+    # branding: assets/images/metops.png
+    # branding_mode: bottom
 
 flutter_icons:
   android: "launcher_icon"
