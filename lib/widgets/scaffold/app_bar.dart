@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../utils/colors.dart';
+import '../../screens/settings.dart';
 
 class AppBarCustom extends StatefulWidget with PreferredSizeWidget {
   const AppBarCustom({super.key});
@@ -29,15 +30,29 @@ class _AppBarCustomState extends State<AppBarCustom> {
           color: primary,
           size: 30,
         ),
-        actions: <Widget>[
-          Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: () {},
-                child: Icon(
+        actions: [
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+            ),
+            padding: EdgeInsets.only(right: 20.0),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Settings()),
+                );
+              },
+              child: Ink(
+                decoration: const BoxDecoration(shape: BoxShape.circle),
+                height: 25,
+                width: 25,
+                child: const Icon(
                   Icons.settings_outlined,
                 ),
-              )),
+              ),
+            ),
+          ),
         ],
       ),
     );
