@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../screens/account.dart';
 import '../../screens/main_screen.dart';
 import '../../utils/styles.dart';
+import '../../utils/router.dart';
 
 class DrawerCustom extends StatelessWidget {
   const DrawerCustom({super.key});
@@ -23,40 +24,32 @@ class DrawerCustom extends StatelessWidget {
               textColor: ColorSelection.neutral,
               leading: Icon(Icons.person),
               iconColor: ColorSelection.neutral,
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Account()),
-                );
-              },
+              onTap: () => Navigate.popThenpushPage(context, Account()),
             ),
             ListTile(
               title: const Text('Home'),
               textColor: ColorSelection.neutral,
               leading: Icon(Icons.home),
               iconColor: ColorSelection.neutral,
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
+              onTap: () => Navigate.popThenpushPage(
                   context,
-                  MaterialPageRoute(builder: (context) => ScaffoldCustom()),
-                );
-              },
+                  ScaffoldCustom(
+                    screenIndex: 0,
+                  )),
             ),
             ListTile(
               title: const Text('Sign Out'),
               textColor: ColorSelection.neutral,
               leading: Icon(Icons.logout),
               iconColor: ColorSelection.neutral,
-              onTap: () {
-                Navigator.pop(context);
-              },
+              onTap: () => Navigator.pop(context),
             ),
             ListTile(
-              title: const Text('v1.0.0 © MetOps'),
-              textColor: ColorSelection.neutral,
-              onTap: null,
+              title: const Text(
+                'v1.0.0 © MetOps',
+                style: TextStyleSelection.neutralText,
+              ),
+              enabled: false,
             ),
           ]),
     );

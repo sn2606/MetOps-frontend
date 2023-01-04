@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../screens/account.dart';
+import '../../utils/router.dart';
 
 class AppBarCustom extends StatefulWidget with PreferredSizeWidget {
   const AppBarCustom({super.key});
@@ -22,12 +23,7 @@ class _AppBarCustomState extends State<AppBarCustom> {
           Container(
             padding: EdgeInsets.only(right: 20.0),
             child: IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Account()),
-                );
-              },
+              onPressed: () => Navigate.pushPage(context, Account()),
               icon: const Icon(
                 Icons.settings_outlined,
               ),

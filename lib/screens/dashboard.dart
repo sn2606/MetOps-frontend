@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../screens/main_screen.dart';
 import '../widgets/render_image.dart';
 import '../widgets/navigation_btn.dart';
 import '../widgets/dashboard/add_button.dart';
 import '../widgets/dashboard/dash_card.dart';
 import '../widgets/dashboard/weather_info.dart';
 import '../utils/styles.dart';
+import '../utils/router.dart';
 
 class Dashboard extends StatefulWidget {
   Dashboard({super.key});
@@ -119,7 +121,12 @@ class _DashboardState extends State<Dashboard> {
                     children: [
                       NavigationButton(
                         title: 'Observation History',
-                        action: () {},
+                        action: () => Navigate.pushPage(
+                          context,
+                          ScaffoldCustom(
+                            screenIndex: 2,
+                          ),
+                        ),
                       ),
                       NavigationButton(
                         title: 'Guidelines',

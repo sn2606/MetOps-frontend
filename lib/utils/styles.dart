@@ -61,6 +61,10 @@ class TextStyleSelection {
     color: ColorSelection.primary,
   );
 
+  static const neutralText = TextStyle(
+    color: ColorSelection.neutral,
+  );
+
   static const titleTextHome = TextStyle(
     color: ColorSelection.primary,
     fontSize: 32,

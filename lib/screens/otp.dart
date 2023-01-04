@@ -4,18 +4,12 @@ import 'package:flutter/services.dart';
 import '../screens/main_screen.dart';
 import '../widgets/command_btn.dart';
 import '../utils/styles.dart';
+import '../utils/router.dart';
 
 class OtpVerify extends StatelessWidget {
   final otpController = TextEditingController();
 
   OtpVerify({super.key});
-
-  void navigateTo(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ScaffoldCustom()),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +70,11 @@ class OtpVerify extends StatelessWidget {
                       ),
                       CommandButton.dark(
                         title: 'Verify',
-                        navigate: (() => navigateTo(context)),
+                        navigate: (() => Navigate.pushPage(
+                            context,
+                            ScaffoldCustom(
+                              screenIndex: 0,
+                            ))),
                       ),
                     ],
                   ),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:metops/screens/main_screen.dart';
+
+import '../../utils/router.dart';
 
 class AddButton extends StatelessWidget {
   const AddButton({super.key});
@@ -7,7 +10,12 @@ class AddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       alignment: Alignment.center,
-      onPressed: () {},
+      onPressed: () => Navigate.pushPage(
+        context,
+        ScaffoldCustom(
+          screenIndex: 1,
+        ),
+      ),
       icon: Icon(
         Icons.add,
         size: 50,

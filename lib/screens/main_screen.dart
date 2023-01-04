@@ -8,7 +8,8 @@ import './query.dart';
 import './records.dart';
 
 class ScaffoldCustom extends StatefulWidget {
-  const ScaffoldCustom({super.key});
+  final int screenIndex;
+  const ScaffoldCustom({super.key, required this.screenIndex});
 
   @override
   State<ScaffoldCustom> createState() => _ScaffoldCustomState();
@@ -16,7 +17,13 @@ class ScaffoldCustom extends StatefulWidget {
 
 class _ScaffoldCustomState extends State<ScaffoldCustom> {
   List<Widget?> _screens = [Dashboard(), Query(), Records()];
-  var _screenIndex = 0;
+  late int _screenIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _screenIndex = widget.screenIndex;
+  }
 
   void _bindScreens(int index) {
     setState(() {

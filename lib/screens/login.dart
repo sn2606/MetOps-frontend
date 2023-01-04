@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../widgets/command_btn.dart';
 import '../utils/styles.dart';
+import '../utils/router.dart';
 import './otp.dart';
 
 class Login extends StatelessWidget {
@@ -10,13 +11,6 @@ class Login extends StatelessWidget {
   final passwordController = TextEditingController();
 
   Login({super.key});
-
-  void navigateTo(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => OtpVerify()),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +82,8 @@ class Login extends StatelessWidget {
                         ),
                         CommandButton.dark(
                           title: 'Login',
-                          navigate: (() => navigateTo(context)),
+                          navigate: (() =>
+                              Navigate.pushPage(context, OtpVerify())),
                         ),
                       ],
                     ),

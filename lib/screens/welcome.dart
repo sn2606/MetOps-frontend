@@ -4,13 +4,10 @@ import 'package:flutter/services.dart';
 import './login.dart';
 import '../widgets/command_btn.dart';
 import '../utils/styles.dart';
+import '../utils/router.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
-
-  void navigateTo(BuildContext context) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +55,7 @@ class WelcomePage extends StatelessWidget {
                       ),
                       CommandButton.light(
                         title: 'Get Started',
-                        navigate: () => navigateTo(context),
+                        navigate: () => Navigate.pushPage(context, Login()),
                       )
                     ],
                   ),
