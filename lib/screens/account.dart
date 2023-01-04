@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../utils/styles.dart';
 import '../widgets/navigation_btn.dart';
@@ -10,18 +9,7 @@ class Account extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: ColorSelection.neutral,
-          statusBarIconBrightness: Brightness.dark,
-        ),
-        backgroundColor: ColorSelection.neutral,
-        elevation: 0,
-        iconTheme: IconThemeData(
-          color: ColorSelection.primary,
-          size: 30,
-        ),
-      ),
+      appBar: AppBar(),
       body: Container(
         width: double.infinity,
         margin: EdgeInsets.only(left: 25, right: 25),

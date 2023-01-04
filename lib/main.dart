@@ -29,6 +29,18 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         canvasColor: ColorSelection.neutral,
         fontFamily: 'Montserrat',
+        appBarTheme: AppBarTheme(
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: ColorSelection.neutral,
+            statusBarIconBrightness: Brightness.dark,
+          ),
+          backgroundColor: ColorSelection.neutral,
+          elevation: 0,
+          iconTheme: IconThemeData(
+            color: ColorSelection.primary,
+            size: 30,
+          ),
+        ),
       ),
       home: WelcomePage(),
     );
