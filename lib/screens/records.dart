@@ -61,12 +61,12 @@ class _RecordsState extends State<Records> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            margin: EdgeInsets.only(bottom: 20),
-            child: Text(
-              'Records',
-              style: TextStyleSelection.titleTextHome,
-            ),
+          Text(
+            'Records',
+            style: TextStyleSelection.titleTextHome,
+          ),
+          SizedBox(
+            height: 20,
           ),
           Expanded(
             child: ListView.builder(

@@ -51,12 +51,14 @@ class _QueryState extends State<Query> {
                   path: 'assets/images/arctic.png',
                   alignment: Alignment.centerLeft,
                 ),
-                Column(
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      margin: EdgeInsets.only(left: 25, right: 25, top: 50),
-                      child: Column(
+                Container(
+                  margin: EdgeInsets.only(left: 25, right: 25),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 50,
+                      ),
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -73,24 +75,26 @@ class _QueryState extends State<Query> {
                           ),
                         ],
                       ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 25, right: 25, top: 50),
-                      child: Row(
+                      SizedBox(
+                        height: 50,
+                      ),
+                      Row(
                         children: [
                           TextFieldCustom(hint: 'Latitude'),
                           TextFieldCustom(hint: 'Longitude'),
                         ],
                       ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 25, right: 25, top: 50),
-                      child: Row(children: [
-                        ActionButtonFilled(title: 'Search'),
-                        ActionButtonOutlined(title: 'Cancel')
-                      ]),
-                    ),
-                  ],
+                      SizedBox(
+                        height: 50,
+                      ),
+                      Row(
+                        children: [
+                          ActionButtonFilled(title: 'Search'),
+                          ActionButtonOutlined(title: 'Cancel')
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

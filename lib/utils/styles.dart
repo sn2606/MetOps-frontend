@@ -34,7 +34,7 @@ class TextStyleSelection {
   );
 
   static const titleTextMainDark = TextStyle(
-    color: ColorSelection.neutral,
+    color: ColorSelection.primary,
     fontSize: 40,
     fontWeight: FontWeight.w700,
   );
@@ -46,7 +46,7 @@ class TextStyleSelection {
   );
 
   static const subtitleTextMainDark = TextStyle(
-    color: ColorSelection.neutral,
+    color: ColorSelection.primary,
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );

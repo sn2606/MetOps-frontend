@@ -72,31 +72,33 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
           Positioned(
-            child: Column(
-              children: [
-                Container(
-                  width: double.infinity,
-                  margin: EdgeInsets.only(left: 25, right: 25, top: 90),
-                  child: Column(
+            child: Container(
+              margin: EdgeInsets.only(left: 25, right: 25),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 90,
+                  ),
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Hello, Operator!',
                         style: TextStyleSelection.titleTextHome,
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 15),
-                        child: Text(
-                          'Welcome back to MetOps',
-                          style: TextStyleSelection.subtitleTextMainDark,
-                        ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        'Welcome back to MetOps',
+                        style: TextStyleSelection.subtitleTextMainDark,
                       ),
                     ],
                   ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 25, right: 25, top: 50),
-                  child: Row(
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       DashCard(
@@ -109,11 +111,10 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ],
                   ),
-                ),
-                Container(
-                  margin:
-                      EdgeInsets.only(left: 25, right: 25, top: 50, bottom: 40),
-                  child: Column(
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       NavigationButton(
@@ -126,8 +127,11 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ],
                   ),
-                ),
-              ],
+                  SizedBox(
+                    height: 40,
+                  ),
+                ],
+              ),
             ),
           ),
         ],

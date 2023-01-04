@@ -45,53 +45,51 @@ class Login extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          child: Text(
-                            'Login',
-                            style: TextStyleSelection.titleTextMainDark,
-                          ),
+                        Text(
+                          'Login',
+                          style: TextStyleSelection.titleTextMainDark,
                         ),
-                        Container(
-                          margin: EdgeInsets.only(top: 25),
-                          child: TextField(
-                            style: TextStyleSelection.primaryText,
-                            decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: ColorSelection.primary,
-                                  ),
+                        SizedBox(
+                          height: 25,
+                        ),
+                        TextField(
+                          style: TextStyleSelection.primaryText,
+                          decoration: InputDecoration(
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: ColorSelection.primary,
                                 ),
-                                labelText: 'Username',
-                                labelStyle: TextStyleSelection.primaryText),
-                            cursorColor: ColorSelection.primary,
-                            controller: usernameController,
-                            onSubmitted: (_) => {},
-                          ),
+                              ),
+                              labelText: 'Username',
+                              labelStyle: TextStyleSelection.primaryText),
+                          cursorColor: ColorSelection.primary,
+                          controller: usernameController,
+                          onSubmitted: (_) => {},
                         ),
-                        Container(
-                          margin: EdgeInsets.only(top: 10),
-                          child: TextField(
-                            style: TextStyleSelection.primaryText,
-                            decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: ColorSelection.primary,
-                                  ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        TextField(
+                          style: TextStyleSelection.primaryText,
+                          decoration: InputDecoration(
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: ColorSelection.primary,
                                 ),
-                                labelText: 'Password',
-                                labelStyle: TextStyleSelection.primaryText),
-                            cursorColor: ColorSelection.primary,
-                            controller: passwordController,
-                            onSubmitted: (_) => {},
-                          ),
+                              ),
+                              labelText: 'Password',
+                              labelStyle: TextStyleSelection.primaryText),
+                          cursorColor: ColorSelection.primary,
+                          controller: passwordController,
+                          onSubmitted: (_) => {},
                         ),
-                        Container(
-                          margin: EdgeInsets.only(top: 60),
-                          child: CommandButton.dark(
-                            title: 'Login',
-                            navigate: (() => navigateTo(context)),
-                          ),
-                        )
+                        SizedBox(
+                          height: 60,
+                        ),
+                        CommandButton.dark(
+                          title: 'Login',
+                          navigate: (() => navigateTo(context)),
+                        ),
                       ],
                     ),
                   ),

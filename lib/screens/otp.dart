@@ -42,44 +42,42 @@ class OtpVerify extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        child: Text(
-                          'Enter OTP',
-                          style: TextStyleSelection.titleTextMainDark,
-                        ),
+                      Text(
+                        'Enter OTP',
+                        style: TextStyleSelection.titleTextMainDark,
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 25),
-                        child: Text(
-                          'A 4-digit OTP has been sent to your registered mobile number',
-                          style: TextStyleSelection.subtitleTextMainDark,
-                        ),
+                      SizedBox(
+                        height: 25,
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 25),
-                        child: TextField(
-                          style: TextStyleSelection.primaryText,
-                          decoration: InputDecoration(
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: ColorSelection.primary,
-                              ),
+                      Text(
+                        'A 4-digit OTP has been sent to your registered mobile number',
+                        style: TextStyleSelection.subtitleTextMainDark,
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      TextField(
+                        style: TextStyleSelection.primaryText,
+                        decoration: InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: ColorSelection.primary,
                             ),
-                            labelText: 'OTP',
-                            labelStyle: TextStyleSelection.primaryText,
                           ),
-                          cursorColor: ColorSelection.primary,
-                          controller: otpController,
-                          onSubmitted: (_) => {},
+                          labelText: 'OTP',
+                          labelStyle: TextStyleSelection.primaryText,
                         ),
+                        cursorColor: ColorSelection.primary,
+                        controller: otpController,
+                        onSubmitted: (_) => {},
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 60),
-                        child: CommandButton.dark(
-                          title: 'Verify',
-                          navigate: (() => navigateTo(context)),
-                        ),
-                      )
+                      SizedBox(
+                        height: 60,
+                      ),
+                      CommandButton.dark(
+                        title: 'Verify',
+                        navigate: (() => navigateTo(context)),
+                      ),
                     ],
                   ),
                 ),

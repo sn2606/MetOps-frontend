@@ -42,25 +42,23 @@ class WelcomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        child: Text(
-                          'Welcome',
-                          style: TextStyleSelection.titleTextMainLight,
-                        ),
+                      Text(
+                        'Welcome',
+                        style: TextStyleSelection.titleTextMainLight,
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 25),
-                        child: Text(
-                          'MetOps is an application for Field Artillery Meteorology',
-                          style: TextStyleSelection.subtitleTextMainLight,
-                        ),
+                      SizedBox(
+                        height: 25,
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 85),
-                        child: CommandButton.light(
-                          title: 'Get Started',
-                          navigate: () => navigateTo(context),
-                        ),
+                      Text(
+                        'MetOps is an application for Field Artillery Meteorology',
+                        style: TextStyleSelection.subtitleTextMainLight,
+                      ),
+                      SizedBox(
+                        height: 80,
+                      ),
+                      CommandButton.light(
+                        title: 'Get Started',
+                        navigate: () => navigateTo(context),
                       )
                     ],
                   ),

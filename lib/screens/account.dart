@@ -60,9 +60,14 @@ class Account extends StatelessWidget {
                   title: 'Privacy',
                   action: () {},
                 ),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 10),
-                  child: Text('v1.0.0'),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'v1.0.0',
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 NavigationButton.alert(
                   title: 'Sign Out',
