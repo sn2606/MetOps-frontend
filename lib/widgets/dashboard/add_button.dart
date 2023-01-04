@@ -5,16 +5,13 @@ class AddButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      child: Container(
-        height: 50,
-        width: 50,
-        child: Icon(
-          Icons.add,
-          size: 50,
-          color: Color.fromRGBO(135, 130, 166, 1),
-        ),
+    return IconButton(
+      alignment: Alignment.center,
+      onPressed: () {},
+      icon: Icon(
+        Icons.add,
+        size: 50,
+        color: Color.fromRGBO(135, 130, 166, 1),
       ),
     );
   }

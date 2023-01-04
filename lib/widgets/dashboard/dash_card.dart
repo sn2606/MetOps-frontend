@@ -32,10 +32,7 @@ class _DashCardState extends State<DashCard> {
         color: type == 'info'
             ? ColorSelection.tertiaryContainer
             : ColorSelection.primaryContainer,
-        child: Align(
-          alignment: Alignment.center,
-          child: content,
-        ),
+        child: content,
       ),
     );
   }
