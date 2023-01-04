@@ -77,6 +77,7 @@ class _DashboardState extends State<Dashboard> {
             child: Container(
               margin: EdgeInsets.only(left: 25, right: 25),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
                     height: 90,
