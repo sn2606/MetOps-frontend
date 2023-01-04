@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../widgets/render_image.dart';
 import '../widgets/navigation_btn.dart';
-import '../widgets/title_text.dart';
 import '../widgets/dashboard/add_button.dart';
 import '../widgets/dashboard/dash_card.dart';
 import '../widgets/dashboard/weather_info.dart';
@@ -81,16 +80,15 @@ class _DashboardState extends State<Dashboard> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TitleText(title: 'Hello, Operator!'),
+                      Text(
+                        'Hello, Operator!',
+                        style: TextStyleSelection.titleTextHome,
+                      ),
                       Container(
                         margin: EdgeInsets.only(top: 15),
                         child: Text(
                           'Welcome back to MetOps',
-                          style: TextStyle(
-                            color: ColorSelection.primary,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: TextStyleSelection.subtitleTextMainDark,
                         ),
                       ),
                     ],

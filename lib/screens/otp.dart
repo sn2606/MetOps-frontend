@@ -45,27 +45,20 @@ class OtpVerify extends StatelessWidget {
                       Container(
                         child: Text(
                           'Enter OTP',
-                          style: TextStyle(
-                            color: ColorSelection.primary,
-                            fontSize: 40,
-                            fontWeight: FontWeight.w700,
-                          ),
+                          style: TextStyleSelection.titleTextMainDark,
                         ),
                       ),
                       Container(
-                          margin: EdgeInsets.only(top: 25),
-                          child: Text(
-                            'A 4-digit OTP has been sent to your registered mobile number',
-                            style: TextStyle(
-                              color: ColorSelection.secondary,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          )),
+                        margin: EdgeInsets.only(top: 25),
+                        child: Text(
+                          'A 4-digit OTP has been sent to your registered mobile number',
+                          style: TextStyleSelection.subtitleTextMainDark,
+                        ),
+                      ),
                       Container(
                         margin: EdgeInsets.only(top: 25),
                         child: TextField(
-                          style: TextStyle(color: ColorSelection.primary),
+                          style: TextStyleSelection.primaryText,
                           decoration: InputDecoration(
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
@@ -73,9 +66,7 @@ class OtpVerify extends StatelessWidget {
                               ),
                             ),
                             labelText: 'OTP',
-                            labelStyle: TextStyle(
-                              color: ColorSelection.primary,
-                            ),
+                            labelStyle: TextStyleSelection.primaryText,
                           ),
                           cursorColor: ColorSelection.primary,
                           controller: otpController,

@@ -42,11 +42,7 @@ class NavigationButton extends StatelessWidget {
           foregroundColor:
               MaterialStatePropertyAll<Color>(ColorSelection.primary),
           textStyle: MaterialStatePropertyAll<TextStyle>(
-            TextStyle(
-              fontFamily: 'Montserrat',
-              fontSize: 15,
-              fontWeight: FontWeight.w700,
-            ),
+            TextStyleSelection.buttonText,
           ),
         ),
       ),

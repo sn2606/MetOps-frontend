@@ -48,28 +48,21 @@ class Login extends StatelessWidget {
                         Container(
                           child: Text(
                             'Login',
-                            style: TextStyle(
-                              color: ColorSelection.primary,
-                              fontSize: 40,
-                              fontWeight: FontWeight.w700,
-                            ),
+                            style: TextStyleSelection.titleTextMainDark,
                           ),
                         ),
                         Container(
                           margin: EdgeInsets.only(top: 25),
                           child: TextField(
-                            style: TextStyle(color: ColorSelection.primary),
+                            style: TextStyleSelection.primaryText,
                             decoration: InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: ColorSelection.primary,
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: ColorSelection.primary,
+                                  ),
                                 ),
-                              ),
-                              labelText: 'Username',
-                              labelStyle: TextStyle(
-                                color: ColorSelection.primary,
-                              ),
-                            ),
+                                labelText: 'Username',
+                                labelStyle: TextStyleSelection.primaryText),
                             cursorColor: ColorSelection.primary,
                             controller: usernameController,
                             onSubmitted: (_) => {},
@@ -78,21 +71,17 @@ class Login extends StatelessWidget {
                         Container(
                           margin: EdgeInsets.only(top: 10),
                           child: TextField(
-                            style: TextStyle(color: ColorSelection.primary),
+                            style: TextStyleSelection.primaryText,
                             decoration: InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: ColorSelection.primary,
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: ColorSelection.primary,
+                                  ),
                                 ),
-                              ),
-                              labelText: 'Password',
-                              labelStyle: TextStyle(
-                                color: ColorSelection.primary,
-                              ),
-                            ),
+                                labelText: 'Password',
+                                labelStyle: TextStyleSelection.primaryText),
                             cursorColor: ColorSelection.primary,
                             controller: passwordController,
-                            keyboardType: TextInputType.number,
                             onSubmitted: (_) => {},
                           ),
                         ),

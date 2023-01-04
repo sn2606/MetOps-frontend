@@ -48,18 +48,11 @@ class RecordCard extends StatelessWidget {
                       children: [
                         Text(
                           '${recordsList[index].latitude}, ${recordsList[index].longitude}',
-                          style: TextStyle(
-                            color: ColorSelection.primary,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
+                          style: TextStyleSelection.recordCardTitle,
                         ),
                         Text(
                           '${recordsList[index].location}',
-                          style: TextStyle(
-                            color: ColorSelection.primary,
-                            fontSize: 14,
-                          ),
+                          style: TextStyleSelection.recordCardSubtitle,
                         ),
                       ],
                     ),
@@ -70,18 +63,11 @@ class RecordCard extends StatelessWidget {
                   children: [
                     Text(
                       DateFormat('dd-MM-yy').format(recordsList[index].created),
-                      style: TextStyle(
-                        color: ColorSelection.primary,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: TextStyleSelection.regularTextTitle,
                     ),
                     Text(
                       DateFormat.jm().format(recordsList[index].created),
-                      style: TextStyle(
-                        color: ColorSelection.primary,
-                        fontSize: 12,
-                      ),
+                      style: TextStyleSelection.regularText,
                     ),
                   ],
                 ),

@@ -42,11 +42,7 @@ class CommandButton extends StatelessWidget {
           backgroundColor: MaterialStatePropertyAll<Color>(bgColor),
           foregroundColor: MaterialStatePropertyAll<Color>(fgColor),
           textStyle: MaterialStatePropertyAll<TextStyle>(
-            TextStyle(
-              fontFamily: 'Montserrat',
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
-            ),
+            TextStyleSelection.buttonText,
           ),
         ),
       ),

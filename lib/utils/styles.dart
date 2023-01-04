@@ -26,4 +26,72 @@ class ColorSelection {
   static const alertContainer = Color.fromRGBO(239, 75, 75, 0.7);
 }
 
-class TextStyles {}
+class TextStyleSelection {
+  static const titleTextMainLight = TextStyle(
+    color: ColorSelection.neutral,
+    fontSize: 40,
+    fontWeight: FontWeight.w700,
+  );
+
+  static const titleTextMainDark = TextStyle(
+    color: ColorSelection.neutral,
+    fontSize: 40,
+    fontWeight: FontWeight.w700,
+  );
+
+  static const subtitleTextMainLight = TextStyle(
+    color: ColorSelection.neutral,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+  );
+
+  static const subtitleTextMainDark = TextStyle(
+    color: ColorSelection.neutral,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+  );
+
+  static const buttonText = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 15,
+    fontWeight: FontWeight.w500,
+  );
+
+  static const primaryText = TextStyle(
+    color: ColorSelection.primary,
+  );
+
+  static const titleTextHome = TextStyle(
+    color: ColorSelection.primary,
+    fontSize: 32,
+    fontWeight: FontWeight.w700,
+  );
+
+  static const regularTextTitle = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  );
+
+  static const regularText = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+  );
+
+  static const instructionText = TextStyle(
+    color: ColorSelection.primary,
+    fontSize: 12,
+    fontWeight: FontWeight.w300,
+    fontStyle: FontStyle.italic,
+  );
+
+  static const recordCardTitle = TextStyle(
+    color: ColorSelection.primary,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
+
+  static const recordCardSubtitle = TextStyle(
+    color: ColorSelection.primary,
+    fontSize: 14,
+  );
+}

@@ -45,22 +45,14 @@ class WelcomePage extends StatelessWidget {
                       Container(
                         child: Text(
                           'Welcome',
-                          style: TextStyle(
-                            color: ColorSelection.neutral,
-                            fontSize: 40,
-                            fontWeight: FontWeight.w700,
-                          ),
+                          style: TextStyleSelection.titleTextMainLight,
                         ),
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 25),
                         child: Text(
                           'MetOps is an application for Field Artillery Meteorology',
-                          style: TextStyle(
-                            color: ColorSelection.neutral,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: TextStyleSelection.subtitleTextMainLight,
                         ),
                       ),
                       Container(

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:metops/utils/styles.dart';
 
 import '../widgets/action_btn_filled.dart';
 import '../widgets/action_btn_outlined.dart';
-import '../widgets/query/instruction_text.dart';
-import '../widgets/title_text.dart';
 import '../widgets/query/text_field.dart';
 import '../widgets/render_image.dart';
 
@@ -60,15 +59,17 @@ class _QueryState extends State<Query> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          TitleText(
-                            title: 'Location Search',
+                          Text(
+                            'Location Search',
+                            style: TextStyleSelection.titleTextHome,
                           ),
-                          InstructionText(
-                            text:
-                                'Please enter the coordinates in decimal of the location you wish to search',
+                          Text(
+                            'Please enter the coordinates in decimal of the location you wish to search',
+                            style: TextStyleSelection.instructionText,
                           ),
-                          InstructionText(
-                            text: 'for e.g. 40.714, -74.006 (New York City)',
+                          Text(
+                            'for e.g. 40.714, -74.006 (New York City)',
+                            style: TextStyleSelection.instructionText,
                           ),
                         ],
                       ),

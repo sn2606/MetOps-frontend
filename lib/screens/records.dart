@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:metops/utils/styles.dart';
 import 'package:metops/widgets/records/record_card.dart';
 
 import '../models/record.dart';
-import '../widgets/title_text.dart';
 
 class Records extends StatefulWidget {
   const Records({super.key});
@@ -63,7 +63,10 @@ class _RecordsState extends State<Records> {
         children: [
           Container(
             margin: EdgeInsets.only(bottom: 20),
-            child: TitleText(title: 'Records'),
+            child: Text(
+              'Records',
+              style: TextStyleSelection.titleTextHome,
+            ),
           ),
           Expanded(
             child: ListView.builder(

@@ -23,50 +23,35 @@ class WeatherInfo extends StatelessWidget {
             margin: EdgeInsets.only(top: 3),
             child: Text(
               'Pune',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-              ),
+              style: TextStyleSelection.regularTextTitle,
             ),
           ),
           Container(
             margin: EdgeInsets.only(top: 5),
             child: Text(
               'Clear, 19°C',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-              ),
+              style: TextStyleSelection.regularText,
             ),
           ),
           Container(
             margin: EdgeInsets.only(top: 5),
             child: Text(
               '56% Humidity',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-              ),
+              style: TextStyleSelection.regularText,
             ),
           ),
           Container(
             margin: EdgeInsets.only(top: 5),
             child: Text(
               '15kph Wind Gusts',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-              ),
+              style: TextStyleSelection.regularText,
             ),
           ),
           Container(
             margin: EdgeInsets.only(top: 5),
             child: Text(
               '18.52° N, 73.85° E',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-              ),
+              style: TextStyleSelection.regularText,
             ),
           )
         ],
