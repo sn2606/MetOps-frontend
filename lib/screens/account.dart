@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../utils/colors.dart';
+import '../utils/styles.dart';
 import '../widgets/navigation_btn.dart';
 
 class Account extends StatelessWidget {
@@ -12,13 +12,13 @@ class Account extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: neutral,
+          statusBarColor: ColorSelection.neutral,
           statusBarIconBrightness: Brightness.dark,
         ),
-        backgroundColor: neutral,
+        backgroundColor: ColorSelection.neutral,
         elevation: 0,
         iconTheme: IconThemeData(
-          color: primary,
+          color: ColorSelection.primary,
           size: 30,
         ),
       ),
@@ -34,13 +34,13 @@ class Account extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: primary,
+                  color: ColorSelection.primary,
                 ),
-                color: primary,
+                color: ColorSelection.primary,
               ),
               child: Image.asset(
                 'assets/images/operator.png',
-                color: neutral,
+                color: ColorSelection.neutral,
                 height: 100,
                 width: 100,
                 alignment: Alignment.center,

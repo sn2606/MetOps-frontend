@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/colors.dart';
+import '../../utils/styles.dart';
 
 class TextFieldCustom extends StatelessWidget {
   final String hint;
@@ -17,19 +17,19 @@ class TextFieldCustom extends StatelessWidget {
         textAlign: TextAlign.left,
         textAlignVertical: TextAlignVertical.center,
         enabled: true,
-        cursorColor: primary,
+        cursorColor: ColorSelection.primary,
         decoration: InputDecoration(
           hintText: hint,
           hintStyle: TextStyle(
-            color: tertiary,
+            color: ColorSelection.tertiary,
             fontSize: 14,
             fontWeight: FontWeight.w300,
           ),
           filled: true,
-          fillColor: neutralVariantContainer,
+          fillColor: ColorSelection.neutralVariantContainer,
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: primary,
+              color: ColorSelection.primary,
             ),
             borderRadius: BorderRadius.all(
               Radius.circular(15),

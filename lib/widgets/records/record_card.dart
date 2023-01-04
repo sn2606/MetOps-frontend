@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../models/record.dart';
-import '../../utils/colors.dart';
+import '../../utils/styles.dart';
 
 class RecordCard extends StatelessWidget {
   final List<Record> recordsList;
@@ -17,16 +17,16 @@ class RecordCard extends StatelessWidget {
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(5)),
-          side: BorderSide(color: primary),
+          side: BorderSide(color: ColorSelection.primary),
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(5)),
           child: Container(
             decoration: BoxDecoration(
-              color: neutralContainer,
+              color: ColorSelection.neutralContainer,
               border: Border(
                 left: BorderSide(
-                  color: primary,
+                  color: ColorSelection.primary,
                   width: 5,
                 ),
               ),
@@ -39,7 +39,7 @@ class RecordCard extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.location_on_outlined,
-                      color: primary,
+                      color: ColorSelection.primary,
                       size: 30,
                     ),
                     Column(
@@ -49,7 +49,7 @@ class RecordCard extends StatelessWidget {
                         Text(
                           '${recordsList[index].latitude}, ${recordsList[index].longitude}',
                           style: TextStyle(
-                            color: primary,
+                            color: ColorSelection.primary,
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
@@ -57,7 +57,7 @@ class RecordCard extends StatelessWidget {
                         Text(
                           '${recordsList[index].location}',
                           style: TextStyle(
-                            color: primary,
+                            color: ColorSelection.primary,
                             fontSize: 14,
                           ),
                         ),
@@ -71,7 +71,7 @@ class RecordCard extends StatelessWidget {
                     Text(
                       DateFormat('dd-MM-yy').format(recordsList[index].created),
                       style: TextStyle(
-                        color: primary,
+                        color: ColorSelection.primary,
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
                       ),
@@ -79,7 +79,7 @@ class RecordCard extends StatelessWidget {
                     Text(
                       DateFormat.jm().format(recordsList[index].created),
                       style: TextStyle(
-                        color: primary,
+                        color: ColorSelection.primary,
                         fontSize: 12,
                       ),
                     ),

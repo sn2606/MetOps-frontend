@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils/colors.dart';
+import '../utils/styles.dart';
 
 class ActionButtonFilled extends StatelessWidget {
   final String title;
@@ -17,12 +17,13 @@ class ActionButtonFilled extends StatelessWidget {
           backgroundColor: MaterialStateProperty.resolveWith<Color?>(
             (Set<MaterialState> states) {
               if (states.contains(MaterialState.pressed)) {
-                return secondary.withOpacity(0.5);
+                return ColorSelection.secondary.withOpacity(0.5);
               }
-              return primary;
+              return ColorSelection.primary;
             },
           ),
-          foregroundColor: MaterialStatePropertyAll<Color>(neutral),
+          foregroundColor:
+              MaterialStatePropertyAll<Color>(ColorSelection.neutral),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),

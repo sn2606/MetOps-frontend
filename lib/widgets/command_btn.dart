@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils/colors.dart';
+import '../utils/styles.dart';
 
 class CommandButton extends StatelessWidget {
   final String title;
@@ -10,15 +10,15 @@ class CommandButton extends StatelessWidget {
 
   const CommandButton.light({
     super.key,
-    this.bgColor = neutral,
-    this.fgColor = primary,
+    this.bgColor = ColorSelection.neutral,
+    this.fgColor = ColorSelection.primary,
     required this.title,
     required this.navigate,
   });
   const CommandButton.dark({
     super.key,
-    this.bgColor = primary,
-    this.fgColor = neutral,
+    this.bgColor = ColorSelection.primary,
+    this.fgColor = ColorSelection.neutral,
     required this.title,
     required this.navigate,
   });

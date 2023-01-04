@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils/colors.dart';
+import '../utils/styles.dart';
 
 class TitleText extends StatelessWidget {
   final String title;
@@ -13,7 +13,7 @@ class TitleText extends StatelessWidget {
       child: Text(
         title,
         style: TextStyle(
-          color: primary,
+          color: ColorSelection.primary,
           fontSize: 32,
           fontWeight: FontWeight.w700,
         ),

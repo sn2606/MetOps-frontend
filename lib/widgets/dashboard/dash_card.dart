@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/colors.dart';
+import '../../utils/styles.dart';
 
 class DashCard extends StatefulWidget {
   final String type;
@@ -26,10 +26,12 @@ class _DashCardState extends State<DashCard> {
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20)),
-          side: BorderSide(color: primary),
+          side: BorderSide(color: ColorSelection.primary),
         ),
         elevation: null,
-        color: type == 'info' ? tertiaryContainer : primaryContainer,
+        color: type == 'info'
+            ? ColorSelection.tertiaryContainer
+            : ColorSelection.primaryContainer,
         child: Align(
           alignment: Alignment.center,
           child: content,

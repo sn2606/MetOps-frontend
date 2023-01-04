@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/colors.dart';
+import '../../utils/styles.dart';
 
 class WeatherInfo extends StatelessWidget {
   const WeatherInfo({super.key});
@@ -16,7 +16,7 @@ class WeatherInfo extends StatelessWidget {
             child: Icon(
               Icons.location_on,
               size: 30,
-              color: primary,
+              color: ColorSelection.primary,
             ),
           ),
           Container(

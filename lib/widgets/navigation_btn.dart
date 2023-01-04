@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils/colors.dart';
+import '../utils/styles.dart';
 
 class NavigationButton extends StatelessWidget {
   final String title;
@@ -11,14 +11,14 @@ class NavigationButton extends StatelessWidget {
     super.key,
     required this.title,
     required this.action,
-    this.bgColor = secondaryContainer,
+    this.bgColor = ColorSelection.secondaryContainer,
   });
 
   const NavigationButton.alert({
     super.key,
     required this.title,
     required this.action,
-    this.bgColor = alertContainer,
+    this.bgColor = ColorSelection.alertContainer,
   });
 
   @override
@@ -39,7 +39,8 @@ class NavigationButton extends StatelessWidget {
           elevation: null,
           shadowColor: null,
           backgroundColor: MaterialStatePropertyAll<Color>(bgColor),
-          foregroundColor: MaterialStatePropertyAll<Color>(primary),
+          foregroundColor:
+              MaterialStatePropertyAll<Color>(ColorSelection.primary),
           textStyle: MaterialStatePropertyAll<TextStyle>(
             TextStyle(
               fontFamily: 'Montserrat',

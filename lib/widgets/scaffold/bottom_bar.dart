@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/colors.dart';
+import '../../utils/styles.dart';
 
 class BottomBar extends StatefulWidget {
   final int screenIndex;
@@ -42,9 +42,9 @@ class _BottomBarState extends State<BottomBar> {
           onTap: bindScreens,
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          backgroundColor: primary,
-          selectedItemColor: neutral,
-          unselectedItemColor: accent,
+          backgroundColor: ColorSelection.primary,
+          selectedItemColor: ColorSelection.neutral,
+          unselectedItemColor: ColorSelection.accent,
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.dashboard),

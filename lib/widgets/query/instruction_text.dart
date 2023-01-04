@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/colors.dart';
+import '../../utils/styles.dart';
 
 class InstructionText extends StatelessWidget {
   final String text;
@@ -13,7 +13,7 @@ class InstructionText extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          color: primary,
+          color: ColorSelection.primary,
           fontSize: 12,
           fontWeight: FontWeight.w300,
           fontStyle: FontStyle.italic,

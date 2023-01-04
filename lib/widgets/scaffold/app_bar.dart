@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../utils/colors.dart';
+import '../../utils/styles.dart';
 import '../../screens/account.dart';
 
 class AppBarCustom extends StatefulWidget with PreferredSizeWidget {
@@ -21,13 +21,13 @@ class _AppBarCustomState extends State<AppBarCustom> {
       padding: EdgeInsets.only(left: 20, right: 10),
       child: AppBar(
         systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: neutral,
+          statusBarColor: ColorSelection.neutral,
           statusBarIconBrightness: Brightness.dark,
         ),
-        backgroundColor: neutral,
+        backgroundColor: ColorSelection.neutral,
         elevation: 0,
         iconTheme: IconThemeData(
-          color: primary,
+          color: ColorSelection.primary,
           size: 30,
         ),
         actions: [

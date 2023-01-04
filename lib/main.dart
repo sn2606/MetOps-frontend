@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import './screens/welcome.dart';
-import './utils/colors.dart';
+import './utils/styles.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    systemNavigationBarColor: neutral,
+    systemNavigationBarColor: ColorSelection.neutral,
     systemNavigationBarIconBrightness: Brightness.dark,
   ));
   runApp(const MyApp());
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        canvasColor: neutral,
+        canvasColor: ColorSelection.neutral,
         fontFamily: 'Montserrat',
       ),
       home: WelcomePage(),

@@ -6,7 +6,7 @@ import '../widgets/title_text.dart';
 import '../widgets/dashboard/add_button.dart';
 import '../widgets/dashboard/dash_card.dart';
 import '../widgets/dashboard/weather_info.dart';
-import '../utils/colors.dart';
+import '../utils/styles.dart';
 
 class Dashboard extends StatefulWidget {
   Dashboard({super.key});
@@ -87,7 +87,7 @@ class _DashboardState extends State<Dashboard> {
                         child: Text(
                           'Welcome back to MetOps',
                           style: TextStyle(
-                            color: primary,
+                            color: ColorSelection.primary,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),

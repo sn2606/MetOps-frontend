@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../screens/account.dart';
 import '../../screens/main_screen.dart';
-import '../../utils/colors.dart';
+import '../../utils/styles.dart';
 
 class DrawerCustom extends StatelessWidget {
   const DrawerCustom({super.key});
@@ -10,7 +10,7 @@ class DrawerCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: primary,
+      backgroundColor: ColorSelection.primary,
       child: ListView(
           padding: EdgeInsets.only(
             left: 10,
@@ -20,9 +20,9 @@ class DrawerCustom extends StatelessWidget {
           children: [
             ListTile(
               title: const Text('Account'),
-              textColor: neutral,
+              textColor: ColorSelection.neutral,
               leading: Icon(Icons.person),
-              iconColor: neutral,
+              iconColor: ColorSelection.neutral,
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
@@ -33,9 +33,9 @@ class DrawerCustom extends StatelessWidget {
             ),
             ListTile(
               title: const Text('Home'),
-              textColor: neutral,
+              textColor: ColorSelection.neutral,
               leading: Icon(Icons.home),
-              iconColor: neutral,
+              iconColor: ColorSelection.neutral,
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
@@ -46,16 +46,16 @@ class DrawerCustom extends StatelessWidget {
             ),
             ListTile(
               title: const Text('Sign Out'),
-              textColor: neutral,
+              textColor: ColorSelection.neutral,
               leading: Icon(Icons.logout),
-              iconColor: neutral,
+              iconColor: ColorSelection.neutral,
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
               title: const Text('v1.0.0 © MetOps'),
-              textColor: neutral,
+              textColor: ColorSelection.neutral,
               onTap: null,
             ),
           ]),

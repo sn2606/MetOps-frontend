@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../screens/main_screen.dart';
 import '../widgets/command_btn.dart';
-import '../utils/colors.dart';
+import '../utils/styles.dart';
 
 class OtpVerify extends StatelessWidget {
   final otpController = TextEditingController();
@@ -21,8 +21,8 @@ class OtpVerify extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
-        statusBarColor: neutral,
-        systemNavigationBarColor: neutral,
+        statusBarColor: ColorSelection.neutral,
+        systemNavigationBarColor: ColorSelection.neutral,
         statusBarIconBrightness: Brightness.dark,
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
@@ -46,7 +46,7 @@ class OtpVerify extends StatelessWidget {
                         child: Text(
                           'Enter OTP',
                           style: TextStyle(
-                            color: primary,
+                            color: ColorSelection.primary,
                             fontSize: 40,
                             fontWeight: FontWeight.w700,
                           ),
@@ -57,7 +57,7 @@ class OtpVerify extends StatelessWidget {
                           child: Text(
                             'A 4-digit OTP has been sent to your registered mobile number',
                             style: TextStyle(
-                              color: secondary,
+                              color: ColorSelection.secondary,
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
                             ),
@@ -65,19 +65,19 @@ class OtpVerify extends StatelessWidget {
                       Container(
                         margin: EdgeInsets.only(top: 25),
                         child: TextField(
-                          style: TextStyle(color: primary),
+                          style: TextStyle(color: ColorSelection.primary),
                           decoration: InputDecoration(
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
-                                color: primary,
+                                color: ColorSelection.primary,
                               ),
                             ),
                             labelText: 'OTP',
                             labelStyle: TextStyle(
-                              color: primary,
+                              color: ColorSelection.primary,
                             ),
                           ),
-                          cursorColor: primary,
+                          cursorColor: ColorSelection.primary,
                           controller: otpController,
                           onSubmitted: (_) => {},
                         ),

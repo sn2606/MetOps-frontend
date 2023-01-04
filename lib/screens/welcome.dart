@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 import './login.dart';
 import '../widgets/command_btn.dart';
-import '../utils/colors.dart';
+import '../utils/styles.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -16,8 +16,8 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        systemNavigationBarColor: primary,
+        statusBarColor: ColorSelection.primary,
+        systemNavigationBarColor: ColorSelection.primary,
         statusBarIconBrightness: Brightness.light,
         systemNavigationBarIconBrightness:
             Brightness.light, //navigation bar icons' color
@@ -25,7 +25,7 @@ class WelcomePage extends StatelessWidget {
       child: Scaffold(
         body: Container(
           decoration: BoxDecoration(
-            color: primary,
+            color: ColorSelection.primary,
           ),
           child: Column(
             children: [
@@ -46,7 +46,7 @@ class WelcomePage extends StatelessWidget {
                         child: Text(
                           'Welcome',
                           style: TextStyle(
-                            color: neutral,
+                            color: ColorSelection.neutral,
                             fontSize: 40,
                             fontWeight: FontWeight.w700,
                           ),
@@ -57,7 +57,7 @@ class WelcomePage extends StatelessWidget {
                         child: Text(
                           'MetOps is an application for Field Artillery Meteorology',
                           style: TextStyle(
-                            color: neutral,
+                            color: ColorSelection.neutral,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),

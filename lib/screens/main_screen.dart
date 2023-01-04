@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils/colors.dart';
+import '../utils/styles.dart';
 import '../widgets/scaffold/app_bar.dart';
 import '../widgets/scaffold/drawer.dart';
 import './dashboard.dart';
@@ -43,9 +43,9 @@ class _ScaffoldCustomState extends State<ScaffoldCustom> {
             onTap: _bindScreens,
             showSelectedLabels: false,
             showUnselectedLabels: false,
-            backgroundColor: primary,
-            selectedItemColor: neutral,
-            unselectedItemColor: accent,
+            backgroundColor: ColorSelection.primary,
+            selectedItemColor: ColorSelection.neutral,
+            unselectedItemColor: ColorSelection.accent,
             items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.dashboard),
