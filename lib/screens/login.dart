@@ -22,6 +22,7 @@ class Login extends StatelessWidget {
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         body: SingleChildScrollView(
           child: Container(
             height: MediaQuery.of(context).size.height,
