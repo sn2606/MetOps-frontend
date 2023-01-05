@@ -11,7 +11,7 @@ class ActionButtonFilled extends StatelessWidget {
     return Container(
       width: 100,
       height: 35,
-      margin: EdgeInsets.only(right: 20),
+      margin: const EdgeInsets.only(right: 20),
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith<Color?>(
@@ -23,7 +23,7 @@ class ActionButtonFilled extends StatelessWidget {
             },
           ),
           foregroundColor:
-              MaterialStatePropertyAll<Color>(ColorSelection.neutral),
+              const MaterialStatePropertyAll<Color>(ColorSelection.neutral),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),

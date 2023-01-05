@@ -16,7 +16,7 @@ class Query extends StatefulWidget {
 class _QueryState extends State<Query> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height,
       child: Stack(
         children: [
@@ -25,7 +25,7 @@ class _QueryState extends State<Query> {
             left: (MediaQuery.of(context).size.width - 90),
             width: 70,
             height: 70,
-            child: RenderImage(
+            child: const RenderImage(
               path: 'assets/images/constellation.png',
               alignment: Alignment.center,
             ),
@@ -35,7 +35,7 @@ class _QueryState extends State<Query> {
             left: (MediaQuery.of(context).size.width - 150),
             width: 80,
             height: 80,
-            child: RenderImage(
+            child: const RenderImage(
               path: 'assets/images/satellite.png',
               alignment: Alignment.center,
             ),
@@ -47,20 +47,20 @@ class _QueryState extends State<Query> {
             width: MediaQuery.of(context).size.width,
             child: Stack(
               children: [
-                RenderImage(
+                const RenderImage(
                   path: 'assets/images/arctic.png',
                   alignment: Alignment.centerLeft,
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 25, right: 25),
+                  margin: const EdgeInsets.only(left: 25, right: 25),
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 50,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        children: const [
                           Text(
                             'Location Search',
                             style: TextStyleSelection.titleTextHome,
@@ -75,20 +75,20 @@ class _QueryState extends State<Query> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 50,
                       ),
                       Row(
-                        children: [
+                        children: const [
                           TextFieldCustom(hint: 'Latitude'),
                           TextFieldCustom(hint: 'Longitude'),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 50,
                       ),
                       Row(
-                        children: [
+                        children: const [
                           ActionButtonFilled(title: 'Search'),
                           ActionButtonOutlined(title: 'Cancel')
                         ],

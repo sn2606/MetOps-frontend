@@ -12,11 +12,11 @@ class AddButton extends StatelessWidget {
       alignment: Alignment.center,
       onPressed: () => Navigate.pushPage(
         context,
-        ScaffoldCustom(
+        const ScaffoldCustom(
           screenIndex: 1,
         ),
       ),
-      icon: Icon(
+      icon: const Icon(
         Icons.add,
         size: 50,
         color: Color.fromRGBO(135, 130, 166, 1),

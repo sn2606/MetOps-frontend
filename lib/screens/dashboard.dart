@@ -10,7 +10,7 @@ import '../utils/styles.dart';
 import '../utils/router.dart';
 
 class Dashboard extends StatefulWidget {
-  Dashboard({super.key});
+  const Dashboard({super.key});
 
   @override
   State<Dashboard> createState() => _DashboardState();
@@ -19,11 +19,11 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height,
       child: Stack(
         children: [
-          Positioned(
+          const Positioned(
             top: -60,
             left: 114,
             height: 332,
@@ -33,7 +33,7 @@ class _DashboardState extends State<Dashboard> {
               alignment: Alignment.center,
             ),
           ),
-          Positioned(
+          const Positioned(
             top: 550,
             right: 10,
             height: 45,
@@ -43,7 +43,7 @@ class _DashboardState extends State<Dashboard> {
               alignment: Alignment.center,
             ),
           ),
-          Positioned(
+          const Positioned(
             top: 500,
             left: 40,
             height: 35,
@@ -53,7 +53,7 @@ class _DashboardState extends State<Dashboard> {
               alignment: Alignment.center,
             ),
           ),
-          Positioned(
+          const Positioned(
             top: 30,
             left: 55,
             height: 35,
@@ -63,7 +63,7 @@ class _DashboardState extends State<Dashboard> {
               alignment: Alignment.center,
             ),
           ),
-          Positioned(
+          const Positioned(
             top: 180,
             left: 0,
             height: 45,
@@ -75,16 +75,16 @@ class _DashboardState extends State<Dashboard> {
           ),
           Positioned(
             child: Container(
-              margin: EdgeInsets.only(left: 25, right: 25),
+              margin: const EdgeInsets.only(left: 25, right: 25),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 90,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         'Hello, Operator!',
                         style: TextStyleSelection.titleTextHome,
@@ -98,12 +98,12 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+                    children: const [
                       DashCard(
                         type: 'info',
                         content: WeatherInfo(),
@@ -114,7 +114,7 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Column(
@@ -124,7 +124,7 @@ class _DashboardState extends State<Dashboard> {
                         title: 'Observation History',
                         action: () => Navigate.pushPage(
                           context,
-                          ScaffoldCustom(
+                          const ScaffoldCustom(
                             screenIndex: 2,
                           ),
                         ),
@@ -135,7 +135,7 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                 ],

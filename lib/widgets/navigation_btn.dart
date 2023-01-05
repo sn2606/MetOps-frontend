@@ -26,10 +26,9 @@ class NavigationButton extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 50,
-      margin: EdgeInsets.only(top: 11, bottom: 11),
+      margin: const EdgeInsets.only(top: 11, bottom: 11),
       child: ElevatedButton(
         onPressed: action,
-        child: Text(title),
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
@@ -40,11 +39,12 @@ class NavigationButton extends StatelessWidget {
           shadowColor: null,
           backgroundColor: MaterialStatePropertyAll<Color>(bgColor),
           foregroundColor:
-              MaterialStatePropertyAll<Color>(ColorSelection.primary),
-          textStyle: MaterialStatePropertyAll<TextStyle>(
+              const MaterialStatePropertyAll<Color>(ColorSelection.primary),
+          textStyle: const MaterialStatePropertyAll<TextStyle>(
             TextStyleSelection.buttonText,
           ),
         ),
+        child: Text(title),
       ),
     );
   }

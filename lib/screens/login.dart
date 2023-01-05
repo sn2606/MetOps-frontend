@@ -15,7 +15,7 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(
+      value: const SystemUiOverlayStyle(
         statusBarColor: ColorSelection.neutral,
         systemNavigationBarColor: ColorSelection.neutral,
         statusBarIconBrightness: Brightness.dark,
@@ -24,61 +24,63 @@ class Login extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         body: SingleChildScrollView(
-          child: Container(
+          child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Column(
               children: [
                 Expanded(
                   child: Container(
-                    margin: EdgeInsets.only(left: 25, right: 25, top: 50),
+                    margin: const EdgeInsets.only(left: 25, right: 25, top: 50),
                     child: Image.asset('assets/images/meteorology.png'),
                   ),
                 ),
                 Expanded(
                   child: Container(
-                    margin: EdgeInsets.only(left: 30, right: 30),
+                    margin: const EdgeInsets.only(left: 30, right: 30),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Login',
                           style: TextStyleSelection.titleTextMainDark,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 25,
                         ),
                         TextField(
                           style: TextStyleSelection.primaryText,
-                          decoration: InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: ColorSelection.primary,
-                                ),
+                          decoration: const InputDecoration(
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: ColorSelection.primary,
                               ),
-                              labelText: 'Username',
-                              labelStyle: TextStyleSelection.primaryText),
+                            ),
+                            labelText: 'Username',
+                            labelStyle: TextStyleSelection.primaryText,
+                          ),
                           cursorColor: ColorSelection.primary,
                           controller: usernameController,
                           onSubmitted: (_) => {},
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         TextField(
                           style: TextStyleSelection.primaryText,
-                          decoration: InputDecoration(
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: ColorSelection.primary,
-                                ),
+                          decoration: const InputDecoration(
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: ColorSelection.primary,
                               ),
-                              labelText: 'Password',
-                              labelStyle: TextStyleSelection.primaryText),
+                            ),
+                            labelText: 'Password',
+                            labelStyle: TextStyleSelection.primaryText,
+                          ),
                           cursorColor: ColorSelection.primary,
                           controller: passwordController,
                           onSubmitted: (_) => {},
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 60,
                         ),
                         CommandButton.dark(

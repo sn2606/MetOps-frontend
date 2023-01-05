@@ -15,14 +15,14 @@ class RecordCard extends StatelessWidget {
     return InkWell(
       onTap: () {},
       child: Card(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(5)),
           side: BorderSide(color: ColorSelection.primary),
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
+          borderRadius: const BorderRadius.all(Radius.circular(5)),
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: ColorSelection.neutralContainer,
               border: Border(
                 left: BorderSide(
@@ -31,13 +31,13 @@ class RecordCard extends StatelessWidget {
                 ),
               ),
             ),
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.location_on_outlined,
                       color: ColorSelection.primary,
                       size: 30,

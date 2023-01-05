@@ -12,7 +12,7 @@ class Records extends StatefulWidget {
 }
 
 class _RecordsState extends State<Records> {
-  List<Record> _recordList = [
+  final List<Record> _recordList = [
     Record(
       id: 'r1',
       location: 'location',
@@ -57,15 +57,15 @@ class _RecordsState extends State<Records> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 25, right: 25, top: 35),
+      margin: const EdgeInsets.only(left: 25, right: 25, top: 35),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Records',
             style: TextStyleSelection.titleTextHome,
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Expanded(

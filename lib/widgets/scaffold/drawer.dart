@@ -13,7 +13,7 @@ class DrawerCustom extends StatelessWidget {
     return Drawer(
       backgroundColor: ColorSelection.primary,
       child: ListView(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             left: 10,
             right: 10,
             top: 100,
@@ -22,30 +22,31 @@ class DrawerCustom extends StatelessWidget {
             ListTile(
               title: const Text('Account'),
               textColor: ColorSelection.neutral,
-              leading: Icon(Icons.person),
+              leading: const Icon(Icons.person),
               iconColor: ColorSelection.neutral,
-              onTap: () => Navigate.popThenpushPage(context, Account()),
+              onTap: () => Navigate.popThenpushPage(context, const Account()),
             ),
             ListTile(
               title: const Text('Home'),
               textColor: ColorSelection.neutral,
-              leading: Icon(Icons.home),
+              leading: const Icon(Icons.home),
               iconColor: ColorSelection.neutral,
               onTap: () => Navigate.popThenpushPage(
-                  context,
-                  ScaffoldCustom(
-                    screenIndex: 0,
-                  )),
+                context,
+                const ScaffoldCustom(
+                  screenIndex: 0,
+                ),
+              ),
             ),
             ListTile(
               title: const Text('Sign Out'),
               textColor: ColorSelection.neutral,
-              leading: Icon(Icons.logout),
+              leading: const Icon(Icons.logout),
               iconColor: ColorSelection.neutral,
               onTap: () => Navigator.pop(context),
             ),
-            ListTile(
-              title: const Text(
+            const ListTile(
+              title: Text(
                 'v1.0.0 © MetOps',
                 style: TextStyleSelection.neutralText,
               ),

@@ -25,11 +25,10 @@ class CommandButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 40,
       child: ElevatedButton(
-        child: Text(title),
         onPressed: navigate,
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -41,10 +40,11 @@ class CommandButton extends StatelessWidget {
           shadowColor: null,
           backgroundColor: MaterialStatePropertyAll<Color>(bgColor),
           foregroundColor: MaterialStatePropertyAll<Color>(fgColor),
-          textStyle: MaterialStatePropertyAll<TextStyle>(
+          textStyle: const MaterialStatePropertyAll<TextStyle>(
             TextStyleSelection.buttonText,
           ),
         ),
+        child: Text(title),
       ),
     );
   }

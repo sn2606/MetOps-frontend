@@ -8,13 +8,13 @@ class ActionButtonOutlined extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 100,
       height: 35,
       child: OutlinedButton(
         style: ButtonStyle(
           side: MaterialStateProperty.all(
-            BorderSide(color: ColorSelection.primary),
+            const BorderSide(color: ColorSelection.primary),
           ),
           backgroundColor: MaterialStateProperty.resolveWith<Color?>(
             (Set<MaterialState> states) {
@@ -25,7 +25,7 @@ class ActionButtonOutlined extends StatelessWidget {
             },
           ),
           foregroundColor:
-              MaterialStatePropertyAll<Color>(ColorSelection.primary),
+              const MaterialStatePropertyAll<Color>(ColorSelection.primary),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),

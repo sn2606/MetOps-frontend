@@ -10,7 +10,7 @@ class TextFieldCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 15),
+      margin: const EdgeInsets.only(right: 15),
       width: 150,
       height: 50,
       child: TextField(
@@ -20,14 +20,14 @@ class TextFieldCustom extends StatelessWidget {
         cursorColor: ColorSelection.primary,
         decoration: InputDecoration(
           hintText: hint,
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             color: ColorSelection.tertiary,
             fontSize: 14,
             fontWeight: FontWeight.w300,
           ),
           filled: true,
           fillColor: ColorSelection.neutralVariantContainer,
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               color: ColorSelection.primary,
             ),
@@ -35,13 +35,14 @@ class TextFieldCustom extends StatelessWidget {
               Radius.circular(15),
             ),
           ),
-          enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(15),
-              ),
-              borderSide: BorderSide(
-                color: Color.fromRGBO(55, 64, 121, 1),
-              )),
+          enabledBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(15),
+            ),
+            borderSide: BorderSide(
+              color: Color.fromRGBO(55, 64, 121, 1),
+            ),
+          ),
         ),
       ),
     );

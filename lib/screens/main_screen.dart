@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../utils/styles.dart';
 import '../widgets/scaffold/app_bar.dart';
@@ -16,7 +17,11 @@ class ScaffoldCustom extends StatefulWidget {
 }
 
 class _ScaffoldCustomState extends State<ScaffoldCustom> {
-  List<Widget?> _screens = [Dashboard(), Query(), Records()];
+  final List<Widget?> _screens = [
+    const Dashboard(),
+    const Query(),
+    const Records()
+  ];
   late int _screenIndex;
 
   @override
@@ -33,40 +38,46 @@ class _ScaffoldCustomState extends State<ScaffoldCustom> {
 
   @override
   Widget build(BuildContext context) {
-    final double _radius = kBottomNavigationBarHeight / 2;
+    const double radius = kBottomNavigationBarHeight / 2;
 
-    return Scaffold(
-      appBar: AppBarCustom(),
-      drawer: DrawerCustom(),
-      body: _screens[_screenIndex],
-      extendBody: true,
-      bottomNavigationBar: Container(
-        margin: EdgeInsets.only(left: 10, right: 10),
-        child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(_radius)),
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            currentIndex: _screenIndex, //state management
-            onTap: _bindScreens,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            backgroundColor: ColorSelection.primary,
-            selectedItemColor: ColorSelection.neutral,
-            unselectedItemColor: ColorSelection.accent,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.dashboard),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.search),
-                label: 'Query',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.receipt),
-                label: 'Records',
-              ),
-            ],
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        systemNavigationBarColor: ColorSelection.neutral,
+        systemNavigationBarIconBrightness: Brightness.dark,
+      ),
+      child: Scaffold(
+        appBar: const AppBarCustom(),
+        drawer: const DrawerCustom(),
+        body: _screens[_screenIndex],
+        extendBody: true,
+        bottomNavigationBar: Container(
+          margin: const EdgeInsets.only(left: 10, right: 10),
+          child: ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(radius)),
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              currentIndex: _screenIndex, //state management
+              onTap: _bindScreens,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              backgroundColor: ColorSelection.primary,
+              selectedItemColor: ColorSelection.neutral,
+              unselectedItemColor: ColorSelection.accent,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.dashboard),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.search),
+                  label: 'Query',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.receipt),
+                  label: 'Records',
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -7,55 +7,50 @@ class WeatherInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            margin: EdgeInsets.only(bottom: 10),
-            child: Icon(
-              Icons.location_on,
-              size: 30,
-              color: ColorSelection.primary,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 3),
-            child: Text(
-              'Pune',
-              style: TextStyleSelection.regularTextTitle,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 5),
-            child: Text(
-              'Clear, 19°C',
-              style: TextStyleSelection.regularText,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 5),
-            child: Text(
-              '56% Humidity',
-              style: TextStyleSelection.regularText,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 5),
-            child: Text(
-              '15kph Wind Gusts',
-              style: TextStyleSelection.regularText,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 5),
-            child: Text(
-              '18.52° N, 73.85° E',
-              style: TextStyleSelection.regularText,
-            ),
-          )
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: const [
+        Icon(
+          Icons.location_on,
+          size: 30,
+          color: ColorSelection.primary,
+        ),
+        SizedBox(
+          height: 13,
+        ),
+        Text(
+          'Pune',
+          style: TextStyleSelection.regularTextTitle,
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Text(
+          'Clear, 19°C',
+          style: TextStyleSelection.regularText,
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Text(
+          '56% Humidity',
+          style: TextStyleSelection.regularText,
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Text(
+          '15kph Wind Gusts',
+          style: TextStyleSelection.regularText,
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Text(
+          '18.52° N, 73.85° E',
+          style: TextStyleSelection.regularText,
+        ),
+      ],
     );
   }
 }

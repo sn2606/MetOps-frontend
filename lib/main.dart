@@ -5,18 +5,7 @@ import './screens/welcome.dart';
 import './utils/styles.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    systemNavigationBarColor: ColorSelection.neutral,
-    systemNavigationBarIconBrightness: Brightness.dark,
-  ));
   runApp(const MyApp());
-  // SystemChrome.setEnabledSystemUIMode(
-  //   SystemUiMode.manual,
-  //   overlays: [SystemUiOverlay.top],
-  // ).then(
-  //   (_) => runApp(const MyApp()),
-  // );
 }
 
 class MyApp extends StatelessWidget {
@@ -29,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         canvasColor: ColorSelection.neutral,
         fontFamily: 'Montserrat',
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle(
             statusBarColor: ColorSelection.neutral,
             statusBarIconBrightness: Brightness.dark,
@@ -42,7 +31,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: WelcomePage(),
+      home: const WelcomePage(),
     );
   }
 }

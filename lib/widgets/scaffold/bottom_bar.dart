@@ -5,47 +5,46 @@ import '../../utils/styles.dart';
 class BottomBar extends StatefulWidget {
   final int screenIndex;
   final void Function(int) bindScreens;
-  final List<Widget?> screens;
+
   const BottomBar({
     super.key,
     required this.screenIndex,
     required this.bindScreens,
-    required this.screens,
   });
 
   @override
-  State<BottomBar> createState() => _BottomBarState(
-      screenIndex: screenIndex, bindScreens: bindScreens, screens: screens);
+  State<BottomBar> createState() => _BottomBarState();
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int screenIndex;
-  final void Function(int) bindScreens;
-  List<Widget?> screens;
+  late int _screenIndex;
+  late void Function(int) _bindScreens;
 
-  _BottomBarState(
-      {required this.screenIndex,
-      required this.bindScreens,
-      required this.screens});
+  @override
+  void initState() {
+    super.initState();
+    _screenIndex = widget.screenIndex;
+    _bindScreens = widget.bindScreens;
+  }
 
   @override
   Widget build(BuildContext context) {
-    final double _radius = kBottomNavigationBarHeight / 2;
+    const double radius = kBottomNavigationBarHeight / 2;
 
     return Container(
-      margin: EdgeInsets.only(left: 10, right: 10),
+      margin: const EdgeInsets.only(left: 10, right: 10),
       child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(_radius)),
+        borderRadius: const BorderRadius.all(Radius.circular(radius)),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          currentIndex: screenIndex, //state management
-          onTap: bindScreens,
+          currentIndex: _screenIndex, //state management
+          onTap: _bindScreens,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           backgroundColor: ColorSelection.primary,
           selectedItemColor: ColorSelection.neutral,
           unselectedItemColor: ColorSelection.accent,
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.dashboard),
               label: 'Home',

@@ -14,7 +14,7 @@ class OtpVerify extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(
+      value: const SystemUiOverlayStyle(
         statusBarColor: ColorSelection.neutral,
         systemNavigationBarColor: ColorSelection.neutral,
         statusBarIconBrightness: Brightness.dark,
@@ -22,39 +22,39 @@ class OtpVerify extends StatelessWidget {
       ),
       child: Scaffold(
         body: SingleChildScrollView(
-          child: Container(
+          child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Column(
               children: [
                 Expanded(
                   child: Container(
-                    margin: EdgeInsets.only(left: 25, right: 25, top: 50),
+                    margin: const EdgeInsets.only(left: 25, right: 25, top: 50),
                     child: Image.asset('assets/images/weather.png'),
                   ),
                 ),
                 Expanded(
                   child: Container(
-                    margin: EdgeInsets.only(left: 30, right: 30),
+                    margin: const EdgeInsets.only(left: 30, right: 30),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Enter OTP',
                           style: TextStyleSelection.titleTextMainDark,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 25,
                         ),
-                        Text(
+                        const Text(
                           'A 4-digit OTP has been sent to your registered mobile number',
                           style: TextStyleSelection.subtitleTextMainDark,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 25,
                         ),
                         TextField(
                           style: TextStyleSelection.primaryText,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: ColorSelection.primary,
@@ -67,16 +67,17 @@ class OtpVerify extends StatelessWidget {
                           controller: otpController,
                           onSubmitted: (_) => {},
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 60,
                         ),
                         CommandButton.dark(
                           title: 'Verify',
                           navigate: (() => Navigate.pushPage(
-                              context,
-                              ScaffoldCustom(
-                                screenIndex: 0,
-                              ))),
+                                context,
+                                const ScaffoldCustom(
+                                  screenIndex: 0,
+                                ),
+                              )),
                         ),
                       ],
                     ),

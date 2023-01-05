@@ -12,11 +12,11 @@ class Account extends StatelessWidget {
       appBar: AppBar(),
       body: Container(
         width: double.infinity,
-        margin: EdgeInsets.only(left: 25, right: 25),
+        margin: const EdgeInsets.only(left: 25, right: 25),
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 40, bottom: 50),
+              margin: const EdgeInsets.only(top: 40, bottom: 50),
               height: 210,
               width: 210,
               decoration: BoxDecoration(
@@ -48,13 +48,13 @@ class Account extends StatelessWidget {
                   title: 'Privacy',
                   action: () {},
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'v1.0.0',
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 NavigationButton.alert(
