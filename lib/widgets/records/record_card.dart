@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../models/record.dart';
+import '../../models/query_model.dart';
 import '../../utils/styles.dart';
 
 class RecordCard extends StatelessWidget {
-  final List<Record> recordsList;
+  final List<QueryModel> queryList;
   final int index;
 
-  const RecordCard({super.key, required this.recordsList, required this.index});
+  const RecordCard({super.key, required this.queryList, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +47,11 @@ class RecordCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '${recordsList[index].latitude}, ${recordsList[index].longitude}',
+                          '${queryList[index].latitude}, ${queryList[index].longitude}',
                           style: TextStyleSelection.recordCardTitle,
                         ),
                         Text(
-                          '${recordsList[index].location}',
+                          '${queryList[index].location}',
                           style: TextStyleSelection.recordCardSubtitle,
                         ),
                       ],
@@ -62,11 +62,11 @@ class RecordCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      DateFormat('dd-MM-yy').format(recordsList[index].created),
+                      DateFormat('dd-MM-yy').format(queryList[index].created),
                       style: TextStyleSelection.regularTextTitle,
                     ),
                     Text(
-                      DateFormat.jm().format(recordsList[index].created),
+                      DateFormat.jm().format(queryList[index].created),
                       style: TextStyleSelection.regularText,
                     ),
                   ],

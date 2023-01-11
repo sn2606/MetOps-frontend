@@ -2,28 +2,29 @@ class Record {
   String id;
   static const altitude = 20000;
   static const interval = 100;
-  double latitude;
-  double longitude;
-  String? location;
-  List<double> actualTemperature;
-  List<double> virtualTemperature;
-  List<double> pressure;
-  List<double> humidity;
-  List<double> windSpeed;
-  List<double> windDirection;
-  DateTime created;
+  List<RecordItem> recordItems;
 
-  Record({
+  Record({required this.id, required this.recordItems});
+}
+
+class RecordItem {
+  int id;
+  int height;
+  double actualTemperature;
+  double virtualTemperature;
+  double pressure;
+  double relativeHumidity;
+  double windSpeed;
+  double windDirection;
+
+  RecordItem({
     required this.id,
-    this.location,
-    required this.latitude,
-    required this.longitude,
+    required this.height,
     required this.actualTemperature,
-    required this.humidity,
-    required this.pressure,
     required this.virtualTemperature,
-    required this.windDirection,
+    required this.pressure,
+    required this.relativeHumidity,
     required this.windSpeed,
-    required this.created,
+    required this.windDirection,
   });
 }

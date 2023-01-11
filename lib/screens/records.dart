@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:metops/utils/styles.dart';
-import 'package:metops/widgets/records/record_card.dart';
 
+import '../utils/styles.dart';
+import '../widgets/records/record_card.dart';
 import '../models/record.dart';
+import '../models/query_model.dart';
 
 class Records extends StatefulWidget {
   const Records({super.key});
@@ -12,47 +13,8 @@ class Records extends StatefulWidget {
 }
 
 class _RecordsState extends State<Records> {
-  final List<Record> _recordList = [
-    Record(
-      id: 'r1',
-      location: 'location',
-      latitude: 18.673,
-      longitude: -65.899,
-      actualTemperature: [],
-      humidity: [],
-      pressure: [],
-      virtualTemperature: [],
-      windDirection: [],
-      windSpeed: [],
-      created: DateTime.now(),
-    ),
-    Record(
-      id: 'r2',
-      location: 'location',
-      latitude: 56.119,
-      longitude: -14.296,
-      actualTemperature: [],
-      humidity: [],
-      pressure: [],
-      virtualTemperature: [],
-      windDirection: [],
-      windSpeed: [],
-      created: DateTime.now(),
-    ),
-    Record(
-      id: 'r1',
-      location: 'location',
-      latitude: 21.534,
-      longitude: -45.001,
-      actualTemperature: [],
-      humidity: [],
-      pressure: [],
-      virtualTemperature: [],
-      windDirection: [],
-      windSpeed: [],
-      created: DateTime.now(),
-    ),
-  ];
+  final List<Record> _recordList = [];
+  final List<QueryModel> _queryList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +33,7 @@ class _RecordsState extends State<Records> {
           Expanded(
             child: ListView.builder(
               itemBuilder: (context, index) {
-                return RecordCard(recordsList: _recordList, index: index);
+                return RecordCard(queryList: _queryList, index: index);
               },
               itemCount: _recordList.length,
             ),
