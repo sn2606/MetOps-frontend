@@ -4,7 +4,13 @@ import '../utils/styles.dart';
 
 class ActionButtonFilled extends StatelessWidget {
   final String title;
-  const ActionButtonFilled({super.key, required this.title});
+  final VoidCallback onPressed;
+
+  const ActionButtonFilled({
+    super.key,
+    required this.title,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +36,7 @@ class ActionButtonFilled extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(title),
       ),
     );

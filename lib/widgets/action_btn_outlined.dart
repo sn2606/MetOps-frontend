@@ -4,7 +4,13 @@ import '../utils/styles.dart';
 
 class ActionButtonOutlined extends StatelessWidget {
   final String title;
-  const ActionButtonOutlined({super.key, required this.title});
+  final VoidCallback onPressed;
+
+  const ActionButtonOutlined({
+    super.key,
+    required this.title,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +38,7 @@ class ActionButtonOutlined extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(title),
       ),
     );

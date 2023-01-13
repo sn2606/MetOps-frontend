@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:metops/utils/styles.dart';
 
-import '../widgets/action_btn_filled.dart';
-import '../widgets/action_btn_outlined.dart';
-import '../widgets/query/text_field.dart';
+import '../widgets/query/query_form.dart';
 import '../widgets/render_image.dart';
 
 class Query extends StatefulWidget {
@@ -78,21 +76,7 @@ class _QueryState extends State<Query> {
                       const SizedBox(
                         height: 50,
                       ),
-                      Row(
-                        children: const [
-                          TextFieldCustom(hint: 'Latitude'),
-                          TextFieldCustom(hint: 'Longitude'),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      Row(
-                        children: const [
-                          ActionButtonFilled(title: 'Search'),
-                          ActionButtonOutlined(title: 'Cancel')
-                        ],
-                      ),
+                      const QueryForm(),
                     ],
                   ),
                 ),

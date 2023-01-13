@@ -4,8 +4,10 @@ import '../../utils/styles.dart';
 
 class TextFieldCustom extends StatelessWidget {
   final String hint;
+  final TextEditingController controller;
 
-  const TextFieldCustom({super.key, required this.hint});
+  const TextFieldCustom(
+      {super.key, required this.hint, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +16,7 @@ class TextFieldCustom extends StatelessWidget {
       width: 150,
       height: 50,
       child: TextField(
+        controller: controller,
         textAlign: TextAlign.left,
         textAlignVertical: TextAlignVertical.center,
         enabled: true,
