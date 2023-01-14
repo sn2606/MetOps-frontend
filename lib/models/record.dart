@@ -31,11 +31,11 @@ class RecordItem {
   factory RecordItem.fromJson(Map<String, dynamic> json) {
     return RecordItem(
         height: json['height'],
-        actualTemperature: json['actualTemperature'],
-        virtualTemperature: json['virtualTemperature'],
+        actualTemperature: json['temperature'],
+        virtualTemperature: json['virtual_temperature'],
         pressure: json['pressure'],
-        relativeHumidity: json['relativeHumidity'],
-        windSpeed: json['windSpeed'],
-        windDirection: json['windDirection']);
+        relativeHumidity: json['relative_humidity'],
+        windSpeed: json['wind_speed'],
+        windDirection: json['wind_direction']);
   }
 }

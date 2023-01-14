@@ -4,7 +4,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import '../models/record.dart';
 import '../utils/api.dart';
+import '../widgets/query/table_builder.dart';
 
 class QueryResult extends StatefulWidget {
   final double latitude;
@@ -20,8 +22,8 @@ class _QueryResultState extends State<QueryResult> {
   late double _latitude;
   late double _longitude;
   late http.Response _response;
-  late Future<Map<String, dynamic>> _data;
-  late Map<String, dynamic> _test;
+  late Map<String, dynamic> _data;
+  late Future<List<RecordItem>?> _futureRecordItems;
 
   Future<Map<String, dynamic>> _fetchQueryResult(
       double latitude, double longitude) async {
@@ -36,14 +38,25 @@ class _QueryResultState extends State<QueryResult> {
         HttpHeaders.contentTypeHeader: 'application/json',
       });
       if (_response.statusCode == 200) {
-        _test = jsonDecode(_response.body);
-        print(_test['data']);
         return jsonDecode(_response.body);
       } else {
         throw Exception('Bad Response');
       }
     } catch (error) {
-      return jsonDecode("{}");
+      return jsonDecode("{'status': 404}");
+    }
+  }
+
+  Future<List<RecordItem>?> processResult(
+      double latitude, double longitude) async {
+    _data = await _fetchQueryResult(latitude, longitude);
+    if (_data['status'] == 200) {
+      return _data['records']
+          .map<RecordItem>(
+              (item) => RecordItem.fromJson(Map<String, dynamic>.from(item)))
+          .toList();
+    } else {
+      return null;
     }
   }
 
@@ -52,14 +65,18 @@ class _QueryResultState extends State<QueryResult> {
     super.initState();
     _latitude = widget.latitude;
     _longitude = widget.longitude;
-    _data = _fetchQueryResult(_latitude, _longitude);
+    _futureRecordItems = processResult(_latitude, _longitude);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: const Text('boo'),
+      body: TableBuilder(
+        futureRecordItems: _futureRecordItems,
+        latitude: _latitude,
+        longitude: _longitude,
+      ),
     );
   }
 }
