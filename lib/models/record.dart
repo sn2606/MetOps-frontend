@@ -8,7 +8,7 @@ class Record {
 }
 
 class RecordItem {
-  int id;
+  int? id;
   int height;
   double actualTemperature;
   double virtualTemperature;
@@ -18,7 +18,7 @@ class RecordItem {
   double windDirection;
 
   RecordItem({
-    required this.id,
+    this.id,
     required this.height,
     required this.actualTemperature,
     required this.virtualTemperature,
@@ -27,4 +27,15 @@ class RecordItem {
     required this.windSpeed,
     required this.windDirection,
   });
+
+  factory RecordItem.fromJson(Map<String, dynamic> json) {
+    return RecordItem(
+        height: json['height'],
+        actualTemperature: json['actualTemperature'],
+        virtualTemperature: json['virtualTemperature'],
+        pressure: json['pressure'],
+        relativeHumidity: json['relativeHumidity'],
+        windSpeed: json['windSpeed'],
+        windDirection: json['windDirection']);
+  }
 }
