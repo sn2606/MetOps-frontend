@@ -3,12 +3,13 @@ import 'package:flutter/services.dart';
 
 import '../widgets/command_btn.dart';
 import '../utils/styles.dart';
-import '../utils/router.dart';
-import './otp.dart';
+import '../services/auth_service.dart';
 
 class Login extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  final auth = AuthService();
 
   Login({super.key});
 
@@ -35,68 +36,87 @@ class Login extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.only(left: 30, right: 30),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Login',
-                          style: TextStyleSelection.titleTextMainDark,
-                        ),
-                        const SizedBox(
-                          height: 25,
-                        ),
-                        TextField(
-                          style: TextStyleSelection.primaryText,
-                          decoration: const InputDecoration(
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: ColorSelection.primary,
-                              ),
-                            ),
-                            labelText: 'Username',
-                            labelStyle: TextStyleSelection.primaryText,
-                          ),
-                          cursorColor: ColorSelection.primary,
-                          controller: usernameController,
-                          onSubmitted: (_) => {},
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        TextField(
-                          style: TextStyleSelection.primaryText,
-                          decoration: const InputDecoration(
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: ColorSelection.primary,
-                              ),
-                            ),
-                            labelText: 'Password',
-                            labelStyle: TextStyleSelection.primaryText,
-                          ),
-                          cursorColor: ColorSelection.primary,
-                          controller: passwordController,
-                          onSubmitted: (_) => {},
-                        ),
-                        const SizedBox(
-                          height: 60,
-                        ),
-                        CommandButton.dark(
-                          title: 'Login',
-                          navigate: (() =>
-                              Navigate.pushPage(context, OtpVerify())),
-                        ),
-                      ],
-                    ),
-                  ),
+                  child: _loginForm(context),
                 ),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  Widget _loginForm(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Container(
+        margin: const EdgeInsets.only(left: 30, right: 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Login',
+              style: TextStyleSelection.titleTextMainDark,
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            _usernameField(),
+            const SizedBox(
+              height: 10,
+            ),
+            _passwordField(),
+            const SizedBox(
+              height: 60,
+            ),
+            _loginButton(context),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _usernameField() {
+    return TextFormField(
+      style: TextStyleSelection.primaryText,
+      decoration: const InputDecoration(
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: ColorSelection.primary,
+          ),
+        ),
+        labelText: 'Username',
+        labelStyle: TextStyleSelection.primaryText,
+      ),
+      cursorColor: ColorSelection.primary,
+      controller: usernameController,
+    );
+  }
+
+  Widget _passwordField() {
+    return TextFormField(
+      obscureText: true,
+      style: TextStyleSelection.primaryText,
+      decoration: const InputDecoration(
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: ColorSelection.primary,
+          ),
+        ),
+        labelText: 'Password',
+        labelStyle: TextStyleSelection.primaryText,
+      ),
+      cursorColor: ColorSelection.primary,
+      controller: passwordController,
+    );
+  }
+
+  Widget _loginButton(BuildContext context) {
+    return CommandButton.dark(
+      title: 'Login',
+      navigate: () {
+        auth.login(usernameController.text, passwordController.text);
+      },
     );
   }
 }
