@@ -39,6 +39,12 @@ class _ScaffoldCustomState extends State<ScaffoldCustom> {
   @override
   Widget build(BuildContext context) {
     const double radius = kBottomNavigationBarHeight / 2;
+    final AppBar appBar = AppBar();
+    final bodyHeight = MediaQuery.of(context).size.height -
+        -appBar.preferredSize.height -
+        MediaQuery.of(context).padding.top -
+        MediaQuery.of(context).padding.bottom -
+        kBottomNavigationBarHeight;
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
@@ -48,7 +54,13 @@ class _ScaffoldCustomState extends State<ScaffoldCustom> {
       child: Scaffold(
         appBar: const AppBarCustom(),
         drawer: const DrawerCustom(),
-        body: _screens[_screenIndex],
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: SizedBox(
+            height: bodyHeight,
+            child: _screens[_screenIndex],
+          ),
+        ),
         extendBody: true,
         bottomNavigationBar: Container(
           margin: const EdgeInsets.only(left: 10, right: 10),

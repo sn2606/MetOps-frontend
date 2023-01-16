@@ -20,7 +20,6 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
       child: Stack(
         children: [
           const Positioned(

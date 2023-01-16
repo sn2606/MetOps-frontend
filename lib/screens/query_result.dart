@@ -43,7 +43,7 @@ class _QueryResultState extends State<QueryResult> {
         throw Exception('Bad Response');
       }
     } catch (error) {
-      return jsonDecode("{'status': 404}");
+      return jsonDecode("{'status': 400}");
     }
   }
 

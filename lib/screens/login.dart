@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:metops/screens/main_screen.dart';
 
+import '../models/user.dart';
 import '../widgets/command_btn.dart';
 import '../utils/styles.dart';
+import '../utils/router.dart';
 import '../services/auth_service.dart';
 
 class Login extends StatelessWidget {
@@ -111,12 +114,30 @@ class Login extends StatelessWidget {
     );
   }
 
+  void _loginHelper(BuildContext context, VoidCallback ifOk) async {
+    final response =
+        await auth.login(usernameController.text, passwordController.text);
+    if (response['status'] == 200) {
+      User loggedIn = response['user'];
+      ifOk();
+    } else {
+      usernameController.clear();
+      passwordController.clear();
+    }
+  }
+
   Widget _loginButton(BuildContext context) {
     return CommandButton.dark(
       title: 'Login',
-      navigate: () {
-        auth.login(usernameController.text, passwordController.text);
-      },
+      navigate: () => _loginHelper(
+        context,
+        () {
+          Navigate.pushPage(
+            context,
+            const ScaffoldCustom(screenIndex: 0),
+          );
+        },
+      ),
     );
   }
 }

@@ -15,7 +15,6 @@ class _QueryState extends State<Query> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
       child: Stack(
         children: [
           Positioned(
