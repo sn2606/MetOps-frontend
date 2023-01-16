@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/record.dart';
@@ -32,10 +33,14 @@ class _QueryResultState extends State<QueryResult> {
       'longitude': longitude.toString(),
     };
     try {
+      final tokens = await SessionManager().get('tokens');
+      final accessToken = tokens['accessToken'];
+      // final refreshToken = tokens['refreshToken'];
       final uri =
           Uri.http(Endpoints.authority, Endpoints.askQuery, queryParameters);
       _response = await http.get(uri, headers: {
         HttpHeaders.contentTypeHeader: 'application/json',
+        HttpHeaders.authorizationHeader: 'Bearer $accessToken'
       });
       if (_response.statusCode == 200) {
         return jsonDecode(_response.body);
