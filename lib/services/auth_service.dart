@@ -1,11 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:http/http.dart' as http;
+import 'package:metops/utils/router.dart';
 
 import '../utils/api.dart';
 import '../models/user.dart';
+import '../screens/welcome.dart';
 
 class AuthService {
   // ignore: non_constant_identifier_names
@@ -48,6 +51,8 @@ class AuthService {
           final accInfo =
               Map<String, dynamic>.from(jsonDecode(accInfoResponse.body));
           setAccInfo(accInfo['id']!, accInfo['username']!);
+          SESSION.set('loggedIn', true);
+
           User loggedIn = User(
             id: accInfo['id'],
             username: accInfo['username'],
@@ -118,4 +123,9 @@ class _AuthData {
     };
     return data;
   }
+}
+
+void logoutUser(BuildContext context) {
+  SessionManager().destroy();
+  Navigate.pushPage(context, const WelcomePage());
 }

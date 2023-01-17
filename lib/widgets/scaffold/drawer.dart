@@ -4,6 +4,7 @@ import '../../screens/account.dart';
 import '../../screens/main_screen.dart';
 import '../../utils/styles.dart';
 import '../../utils/router.dart';
+import '../../services/auth_service.dart';
 
 class DrawerCustom extends StatelessWidget {
   const DrawerCustom({super.key});
@@ -43,7 +44,7 @@ class DrawerCustom extends StatelessWidget {
               textColor: ColorSelection.neutral,
               leading: const Icon(Icons.logout),
               iconColor: ColorSelection.neutral,
-              onTap: () => Navigator.pop(context),
+              onTap: () => logoutUser(context),
             ),
             const ListTile(
               title: Text(
