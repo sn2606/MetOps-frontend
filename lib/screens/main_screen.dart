@@ -61,7 +61,6 @@ class _ScaffoldCustomState extends State<ScaffoldCustom> {
             child: _screens[_screenIndex],
           ),
         ),
-        extendBody: true,
         bottomNavigationBar: Container(
           margin: const EdgeInsets.only(left: 10, right: 10),
           child: ClipRRect(
