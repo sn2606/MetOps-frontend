@@ -1,9 +1,11 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import '../../models/record.dart';
 import '../../utils/api.dart';
@@ -13,7 +15,7 @@ import '../../screens/main_screen.dart';
 import '../action_btn_filled.dart';
 import '../action_btn_outlined.dart';
 
-class TableBuilder extends StatelessWidget {
+class TableBuilder extends StatefulWidget {
   final Future<List<RecordItem>?> futureRecordItems;
   final double latitude;
   final double longitude;
@@ -25,19 +27,27 @@ class TableBuilder extends StatelessWidget {
     required this.longitude,
   });
 
+  @override
+  State<TableBuilder> createState() => _TableBuilderState();
+}
+
+class _TableBuilderState extends State<TableBuilder> {
+  Timer? _timer;
+
   void _save(BuildContext context, VoidCallback ifOk) async {
     final session = SessionManager();
     final tokens = await session.get('tokens');
     final accessToken = tokens['accessToken'];
 
-    List<RecordItem>? records = await futureRecordItems;
+    EasyLoading.show(status: 'Saving...');
+    List<RecordItem>? records = await widget.futureRecordItems;
     final Map<String, dynamic> saveBody = {
       'user': {
         'userid': await session.get('userid'),
       },
       'query': {
-        'latitude': latitude,
-        'longitude': longitude,
+        'latitude': widget.latitude,
+        'longitude': widget.longitude,
       },
       'records': records!.map((rec) {
         return {
@@ -67,22 +77,36 @@ class TableBuilder extends StatelessWidget {
     );
 
     if (response.statusCode == 200) {
+      EasyLoading.showSuccess('Saved');
+      EasyLoading.dismiss();
       ifOk();
     } else {
-      // show error - state management
+      EasyLoading.showError('An error occured');
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    EasyLoading.addStatusCallback((status) {
+      if (status == EasyLoadingStatus.dismiss) {
+        _timer?.cancel();
+      }
+    });
+    // EasyLoading.removeCallbacks();
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<RecordItem>?>(
-      future: futureRecordItems, // a previously-obtained Future<String> or null
+      future: widget
+          .futureRecordItems, // a previously-obtained Future<String> or null
       builder: (context, snapshot) {
         List<Widget> children;
         if (snapshot.hasData) {
           children = <Widget>[
             Text(
-              '$latitude, $longitude',
+              '${widget.latitude}, ${widget.longitude}',
               style: TextStyleSelection.titleTextHome,
             ),
             const SizedBox(
