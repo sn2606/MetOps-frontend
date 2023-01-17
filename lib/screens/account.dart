@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../utils/styles.dart';
 import '../widgets/navigation_btn.dart';
+import '../services/auth_service.dart';
 
 class Account extends StatelessWidget {
   const Account({super.key});
@@ -59,7 +60,7 @@ class Account extends StatelessWidget {
                 ),
                 NavigationButton.alert(
                   title: 'Sign Out',
-                  action: () {},
+                  action: () => logoutUser(context),
                 ),
               ],
             ),
