@@ -12,4 +12,14 @@ class QueryModel {
     this.location,
     required this.created,
   });
+
+  factory QueryModel.fromJson(Map<String, dynamic> json) {
+    return QueryModel(
+      id: json['id'],
+      latitude: double.parse(json['latitude']),
+      longitude: double.parse(json['longitude']),
+      location: json['location'],
+      created: DateTime.parse(json['created']).toLocal(),
+    );
+  }
 }
