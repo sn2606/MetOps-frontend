@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../screens/main_screen.dart';
+import '../screens/account.dart';
 import '../widgets/render_image.dart';
 import '../widgets/navigation_btn.dart';
 import '../widgets/dashboard/add_button.dart';
@@ -129,8 +130,11 @@ class _DashboardState extends State<Dashboard> {
                         ),
                       ),
                       NavigationButton(
-                        title: 'Guidelines',
-                        action: () {},
+                        title: 'Account',
+                        action: () => Navigate.pushPage(
+                          context,
+                          const Account(),
+                        ),
                       ),
                     ],
                   ),
