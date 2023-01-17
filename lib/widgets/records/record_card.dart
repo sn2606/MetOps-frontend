@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../models/query_model.dart';
+import '../../screens/records_result.dart';
 import '../../utils/styles.dart';
+import '../../utils/router.dart';
 
 class RecordCard extends StatelessWidget {
   final List<QueryModel> queryList;
@@ -13,7 +15,19 @@ class RecordCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        final queryid = queryList[index].id;
+        final latitude = queryList[index].latitude;
+        final longitude = queryList[index].longitude;
+        Navigate.pushPage(
+          context,
+          RecordResult(
+            queryid: queryid,
+            latitude: latitude,
+            longitude: longitude,
+          ),
+        );
+      },
       child: Card(
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(5)),

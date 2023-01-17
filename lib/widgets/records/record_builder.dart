@@ -15,12 +15,12 @@ import '../../screens/main_screen.dart';
 import '../action_btn_filled.dart';
 import '../action_btn_outlined.dart';
 
-class TableBuilder extends StatefulWidget {
+class RecordTableBuilder extends StatefulWidget {
   final Future<List<RecordItem>?> futureRecordItems;
   final double latitude;
   final double longitude;
 
-  const TableBuilder({
+  const RecordTableBuilder({
     super.key,
     required this.futureRecordItems,
     required this.latitude,
@@ -28,10 +28,10 @@ class TableBuilder extends StatefulWidget {
   });
 
   @override
-  State<TableBuilder> createState() => _TableBuilderState();
+  State<RecordTableBuilder> createState() => _RecordTableBuilderState();
 }
 
-class _TableBuilderState extends State<TableBuilder> {
+class _RecordTableBuilderState extends State<RecordTableBuilder> {
   Timer? _timer;
 
   void _save(BuildContext context, VoidCallback ifOk) async {
@@ -147,7 +147,7 @@ class _TableBuilderState extends State<TableBuilder> {
                       ),
                       DataColumn(
                         label: Expanded(
-                          child: Text('Wind Speed (kmh)'),
+                          child: Text('Wind Speed (km/h)'),
                         ),
                       ),
                       DataColumn(
@@ -158,18 +158,21 @@ class _TableBuilderState extends State<TableBuilder> {
                     ],
                     rows: [
                       ...snapshot.data!.map((item) {
-                        return DataRow(cells: [
-                          DataCell(Text(item.height.toString())),
-                          DataCell(
-                              Text(item.actualTemperature.toStringAsFixed(4))),
-                          DataCell(
-                              Text(item.virtualTemperature.toStringAsFixed(4))),
-                          DataCell(Text(item.pressure.toStringAsFixed(4))),
-                          DataCell(
-                              Text(item.relativeHumidity.toStringAsFixed(4))),
-                          DataCell(Text(item.windSpeed.toStringAsFixed(4))),
-                          DataCell(Text(item.windDirection.toStringAsFixed(4))),
-                        ]);
+                        return DataRow(
+                          cells: [
+                            DataCell(Text(item.height.toString())),
+                            DataCell(Text(
+                                item.actualTemperature.toStringAsFixed(4))),
+                            DataCell(Text(
+                                item.virtualTemperature.toStringAsFixed(4))),
+                            DataCell(Text(item.pressure.toStringAsFixed(4))),
+                            DataCell(
+                                Text(item.relativeHumidity.toStringAsFixed(4))),
+                            DataCell(Text(item.windSpeed.toStringAsFixed(4))),
+                            DataCell(
+                                Text(item.windDirection.toStringAsFixed(4))),
+                          ],
+                        );
                       }).toList()
                     ],
                   ),
@@ -182,28 +185,19 @@ class _TableBuilderState extends State<TableBuilder> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ActionButtonFilled(
-                    title: 'Save',
-                    onPressed: () => _save(context, () {
-                      Navigate.pushPage(
-                        context,
-                        const ScaffoldCustom(screenIndex: 2),
-                      );
-                    }),
+                    title: 'Export',
+                    onPressed: () {},
                   ),
                   ActionButtonOutlined(
-                    title: 'Cancel',
-                    onPressed: () {
-                      Navigate.pushPage(
-                        context,
-                        const ScaffoldCustom(screenIndex: 1),
-                      );
-                    },
+                    title: 'Delete',
+                    onPressed: () {},
                   )
                 ],
               ),
             )
           ];
         } else if (snapshot.hasError) {
+          print(snapshot.error);
           children = <Widget>[
             const Text('Sorry, there has been an error on our side!'),
           ];

@@ -5,4 +5,5 @@ class Endpoints {
   static const String saveQuery = '/api/query/save/';
   static const String login = '/api/users/login/';
   static const String accountInfo = '/api/users/account/';
+  static const String recordDetail = '/api/records/view/';
 }
