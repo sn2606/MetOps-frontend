@@ -18,6 +18,7 @@ class _QueryFormState extends State<QueryForm> {
   final _longitudeController = TextEditingController();
 
   void _querySearch(BuildContext context) {
+    FocusManager.instance.primaryFocus?.unfocus();
     double latitude = double.parse(_latitudeController.text);
     double longitude = double.parse(_longitudeController.text);
 
@@ -30,6 +31,7 @@ class _QueryFormState extends State<QueryForm> {
   void _clear() {
     _latitudeController.clear();
     _longitudeController.clear();
+    FocusManager.instance.primaryFocus?.unfocus();
   }
 
   @override
