@@ -19,12 +19,14 @@ class RecordTableBuilder extends StatefulWidget {
   final Future<List<RecordItem>?> futureRecordItems;
   final double latitude;
   final double longitude;
+  final int queryid;
 
   const RecordTableBuilder({
     super.key,
     required this.futureRecordItems,
     required this.latitude,
     required this.longitude,
+    required this.queryid,
   });
 
   @override
@@ -34,39 +36,24 @@ class RecordTableBuilder extends StatefulWidget {
 class _RecordTableBuilderState extends State<RecordTableBuilder> {
   Timer? _timer;
 
-  void _save(BuildContext context, VoidCallback ifOk) async {
+  void _delete(BuildContext context, VoidCallback ifOk) async {
     final session = SessionManager();
     final tokens = await session.get('tokens');
     final accessToken = tokens['accessToken'];
 
-    EasyLoading.show(status: 'Saving...');
+    EasyLoading.show(status: 'Deleting...');
     List<RecordItem>? records = await widget.futureRecordItems;
     final Map<String, dynamic> saveBody = {
-      'user': {
-        'userid': await session.get('userid'),
-      },
-      'query': {
-        'latitude': widget.latitude,
-        'longitude': widget.longitude,
-      },
-      'records': records!.map((rec) {
-        return {
-          'height': rec.height,
-          'temperature': double.parse(rec.actualTemperature.toStringAsFixed(4)),
-          'virtual_temperature':
-              double.parse(rec.virtualTemperature.toStringAsFixed(4)),
-          'pressure': double.parse(rec.pressure.toStringAsFixed(4)),
-          'relative_humidity':
-              double.parse(rec.relativeHumidity.toStringAsFixed(4)),
-          'wind_speed': double.parse(rec.windSpeed.toStringAsFixed(4)),
-          'wind_direction': double.parse(rec.windDirection.toStringAsFixed(4)),
-        };
+      'userid': await session.get('userid'),
+      'queryid': widget.queryid,
+      'recordid': records!.map((rec) {
+        return rec.id;
       }).toList()
     };
 
     // save the above constructed data
-    final uri = Uri.http(Endpoints.authority, Endpoints.saveQuery);
-    http.Response response = await http.post(
+    final uri = Uri.http(Endpoints.authority, Endpoints.deleteRecord);
+    http.Response response = await http.delete(
       uri,
       headers: {
         HttpHeaders.contentTypeHeader: 'application/json',
@@ -77,7 +64,7 @@ class _RecordTableBuilderState extends State<RecordTableBuilder> {
     );
 
     if (response.statusCode == 200) {
-      EasyLoading.showSuccess('Saved');
+      EasyLoading.showSuccess('Deleted');
       EasyLoading.dismiss();
       ifOk();
     } else {
@@ -190,14 +177,21 @@ class _RecordTableBuilderState extends State<RecordTableBuilder> {
                   ),
                   ActionButtonOutlined(
                     title: 'Delete',
-                    onPressed: () {},
+                    onPressed: () {
+                      _delete(
+                        context,
+                        () => Navigate.pushPage(
+                          context,
+                          const ScaffoldCustom(screenIndex: 2),
+                        ),
+                      );
+                    },
                   )
                 ],
               ),
             )
           ];
         } else if (snapshot.hasError) {
-          print(snapshot.error);
           children = <Widget>[
             const Text('Sorry, there has been an error on our side!'),
           ];

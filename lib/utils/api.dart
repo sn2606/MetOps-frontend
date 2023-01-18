@@ -6,4 +6,5 @@ class Endpoints {
   static const String login = '/api/users/login/';
   static const String accountInfo = '/api/users/account/';
   static const String recordDetail = '/api/records/view/';
+  static const String deleteRecord = '/api/records/delete/';
 }
