@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:metops/screens/main_screen.dart';
 
-import '../models/user.dart';
+// import '../models/user.dart';
 import '../widgets/command_btn.dart';
 import '../utils/styles.dart';
 import '../utils/router.dart';
@@ -118,7 +118,7 @@ class Login extends StatelessWidget {
     final response =
         await auth.login(usernameController.text, passwordController.text);
     if (response['status'] == 200) {
-      User loggedIn = response['user'];
+      // User loggedIn = response['user'];
       ifOk();
     } else {
       usernameController.clear();

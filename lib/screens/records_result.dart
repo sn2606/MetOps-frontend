@@ -85,6 +85,7 @@ class _RecordResultState extends State<RecordResult> {
         futureRecordItems: _futureRecordItems,
         latitude: _latitude,
         longitude: _longitude,
+        queryid: _queryid,
       ),
     );
   }

@@ -57,8 +57,8 @@ class _QueryResultState extends State<QueryResult> {
     _data = await _fetchQueryResult(latitude, longitude);
     if (_data['status'] == 200) {
       return _data['records']
-          .map<RecordItem>(
-              (item) => RecordItem.fromJson(Map<String, dynamic>.from(item)))
+          .map<RecordItem>((item) =>
+              RecordItem.fromJsonTable(Map<String, dynamic>.from(item)))
           .toList();
     } else {
       return null;
