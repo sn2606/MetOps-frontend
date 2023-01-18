@@ -30,13 +30,25 @@ class RecordItem {
 
   factory RecordItem.fromJson(Map<String, dynamic> json) {
     return RecordItem(
-      height: json['height'],
+      height: int.parse(json['height']),
       actualTemperature: double.parse(json['temperature']),
       virtualTemperature: double.parse(json['virtual_temperature']),
       pressure: double.parse(json['pressure']),
       relativeHumidity: double.parse(json['relative_humidity']),
       windSpeed: double.parse(json['wind_speed']),
       windDirection: double.parse(json['wind_direction']),
+    );
+  }
+
+  factory RecordItem.fromJsonTable(Map<String, dynamic> json) {
+    return RecordItem(
+      height: json['height'],
+      actualTemperature: json['temperature'],
+      virtualTemperature: json['virtual_temperature'],
+      pressure: json['pressure'],
+      relativeHumidity: json['relative_humidity'],
+      windSpeed: json['wind_speed'],
+      windDirection: json['wind_direction'],
     );
   }
 
