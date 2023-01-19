@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../screens/main_screen.dart';
 import '../screens/account.dart';
@@ -18,6 +19,17 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  void get _locationStatus async {
+    PermissionStatus status = await Permission.locationWhenInUse.request();
+    if (status == PermissionStatus.granted) {}
+  }
+
+  @override
+  void initState() {
+    _locationStatus;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
