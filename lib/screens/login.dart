@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:metops/screens/main_screen.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 // import '../models/user.dart';
 import '../widgets/command_btn.dart';
 import '../utils/styles.dart';
 import '../utils/router.dart';
+import '../screens/main_screen.dart';
 import '../services/auth_service.dart';
 
 class Login extends StatelessWidget {
@@ -14,10 +15,16 @@ class Login extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final auth = AuthService();
 
+  void get _locationStatus async {
+    PermissionStatus status = await Permission.locationWhenInUse.request();
+    if (status == PermissionStatus.granted) {}
+  }
+
   Login({super.key});
 
   @override
   Widget build(BuildContext context) {
+    _locationStatus;
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
         statusBarColor: ColorSelection.neutral,
