@@ -79,9 +79,6 @@ class _WeatherInfoState extends State<WeatherInfo> {
   void initState() {
     super.initState();
     _response = _fetchWeatherInfo();
-    // .then((response) {
-    //
-    // });
   }
 
   @override
