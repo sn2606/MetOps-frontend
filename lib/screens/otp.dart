@@ -2,13 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../screens/main_screen.dart';
-import '../widgets/command_btn.dart';
-import '../utils/styles.dart';
 import '../utils/router.dart';
+import '../utils/styles.dart';
+import '../widgets/command_btn.dart';
 
+/// OTP screen of the app.
+/// Two factor authentication using SMS OTP screen design.
+/// 2FA to be added in the backend.
 class OtpVerify extends StatelessWidget {
+  /// Track OTP
   final otpController = TextEditingController();
 
+  /// Constructor for the OTP screen of the app.
+  /// Used for 2FA.
   OtpVerify({super.key});
 
   @override

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// Color scheme of the UI
+/// Abstracted to adhere to DRY and ease of change
 class ColorSelection {
   static const primary = Color.fromRGBO(15, 4, 75, 1);
   static const primaryContainer = Color.fromRGBO(231, 232, 244, 1);
@@ -26,6 +28,8 @@ class ColorSelection {
   static const alertContainer = Color.fromRGBO(239, 75, 75, 0.7);
 }
 
+/// Text styles used in the UI
+/// Abstracted to adhere to DRY and ease of change
 class TextStyleSelection {
   static const titleTextMainLight = TextStyle(
     color: ColorSelection.neutral,

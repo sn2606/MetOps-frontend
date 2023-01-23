@@ -9,9 +9,15 @@ import '../models/record.dart';
 import '../utils/api.dart';
 import '../widgets/query/table_builder.dart';
 
+/// Query Result screen of the app.
+/// Displays result of query asked in tabular format.
+/// User can save the result.
 class QueryResult extends StatefulWidget {
   final double latitude;
   final double longitude;
+
+  /// Constructor for Stateful Widget to display result (not saved) of query asked by the User.
+  /// Needs input of latitude and longitude of location.
   const QueryResult(
       {super.key, required this.latitude, required this.longitude});
 
@@ -22,11 +28,20 @@ class QueryResult extends StatefulWidget {
 class _QueryResultState extends State<QueryResult> {
   late double _latitude;
   late double _longitude;
+
+  /// Response of Query request.
   late http.Response _response;
+
+  /// Holds the body of response of Query Request (JSON format).
   late Map<String, dynamic> _data;
+
+  /// List of record items obtained after processing response.
   late Future<List<RecordItem>?> _futureRecordItems;
 
-  Future<Map<String, dynamic>> _fetchQueryResult(
+  /// Method to get result of query.
+  /// GET request made to backend Rest API.
+  /// Backend Rest API calls Meteomatics API.
+  Future<http.Response> _fetchQueryResult(
       double latitude, double longitude) async {
     final queryParameters = {
       'latitude': latitude.toString(),
@@ -38,24 +53,23 @@ class _QueryResultState extends State<QueryResult> {
       // final refreshToken = tokens['refreshToken'];
       final uri =
           Uri.http(Endpoints.authority, Endpoints.askQuery, queryParameters);
-      _response = await http.get(uri, headers: {
+      return await http.get(uri, headers: {
         HttpHeaders.contentTypeHeader: 'application/json',
         HttpHeaders.authorizationHeader: 'Bearer $accessToken'
       });
-      if (_response.statusCode == 200) {
-        return jsonDecode(_response.body);
-      } else {
-        throw Exception('Bad Response');
-      }
     } catch (error) {
-      return jsonDecode('{"status": 400}');
+      return http.Response(error.toString(), 400);
     }
   }
 
+  /// Method to process result of Query request.
+  /// RecordItem model instances (defined in record.dart) are created from JSON response body.
   Future<List<RecordItem>?> processResult(
       double latitude, double longitude) async {
-    _data = await _fetchQueryResult(latitude, longitude);
-    if (_data['status'] == 200) {
+    _response = await _fetchQueryResult(latitude, longitude);
+    // If there is no error and everything goes over perfectly
+    if (_response.statusCode == 200) {
+      _data = jsonDecode(_response.body);
       return _data['records']
           .map<RecordItem>((item) =>
               RecordItem.fromJsonTable(Map<String, dynamic>.from(item)))

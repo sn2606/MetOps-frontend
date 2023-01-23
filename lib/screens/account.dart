@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../services/auth_service.dart';
 import '../utils/styles.dart';
 import '../widgets/navigation_btn.dart';
-import '../services/auth_service.dart';
 
+/// Account screen in app.
 class Account extends StatelessWidget {
+  /// Constructor for the account screen in the app.
+  /// Displays details, options and logout button.
   const Account({super.key});
 
   @override

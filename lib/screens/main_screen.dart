@@ -8,8 +8,11 @@ import './dashboard.dart';
 import './query.dart';
 import './records.dart';
 
+/// Custom main screen design.
 class ScaffoldCustom extends StatefulWidget {
   final int screenIndex;
+
+  /// Constructor for the custom scaffold design of the main screen.
   const ScaffoldCustom({super.key, required this.screenIndex});
 
   @override
@@ -17,11 +20,14 @@ class ScaffoldCustom extends StatefulWidget {
 }
 
 class _ScaffoldCustomState extends State<ScaffoldCustom> {
+  /// List of screens to be displayed
   final List<Widget?> _screens = [
     const Dashboard(),
     const Query(),
     const Records()
   ];
+
+  /// The index of screen bottomnavigationbar is focusing on.
   late int _screenIndex;
 
   @override
@@ -30,6 +36,7 @@ class _ScaffoldCustomState extends State<ScaffoldCustom> {
     _screenIndex = widget.screenIndex;
   }
 
+  /// Display screen from _screens at index - int index.
   void _bindScreens(int index) {
     setState(() {
       _screenIndex = index;
@@ -38,13 +45,17 @@ class _ScaffoldCustomState extends State<ScaffoldCustom> {
 
   @override
   Widget build(BuildContext context) {
+    /// Radius of curvature of Bottom Navigation Bar for the design.
     const double radius = kBottomNavigationBarHeight / 2;
     final AppBar appBar = AppBar();
+
+    /// Height of Scroll View
     final bodyHeight = MediaQuery.of(context).size.height -
         -appBar.preferredSize.height -
         MediaQuery.of(context).padding.top -
         MediaQuery.of(context).padding.bottom -
-        kBottomNavigationBarHeight;
+        kBottomNavigationBarHeight -
+        130;
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(

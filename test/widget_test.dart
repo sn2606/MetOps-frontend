@@ -9,14 +9,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:metops/main.dart';
+import 'package:metops/app.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     final isActive = await SessionManager().get('loggedIn');
     bool loggedIn = (isActive == null ? false : true);
-    await tester.pumpWidget(MyApp(
+    await tester.pumpWidget(MetApp(
       loggedIn: loggedIn,
     ));
 

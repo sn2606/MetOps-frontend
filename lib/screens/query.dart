@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:metops/utils/styles.dart';
 
-import '../widgets/query/query_form.dart';
+import '../utils/styles.dart';
 import '../widgets/render_image.dart';
+import '../widgets/query/query_form.dart';
 
+/// Query screen of the app.
+/// Contains form where user enters latitude, longitude values
+/// and searches for result.
 class Query extends StatefulWidget {
+  /// Constructor for Query screen of the app.
   const Query({super.key});
 
   @override

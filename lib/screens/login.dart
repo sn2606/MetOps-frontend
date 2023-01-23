@@ -2,24 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-// import '../models/user.dart';
-import '../widgets/command_btn.dart';
-import '../utils/styles.dart';
-import '../utils/router.dart';
 import '../screens/main_screen.dart';
 import '../services/auth_service.dart';
+import '../utils/router.dart';
+import '../utils/styles.dart';
+import '../widgets/command_btn.dart';
 
+/// Login screen of the app. Contains the login form.
 class Login extends StatelessWidget {
+  /// Track username input
   final usernameController = TextEditingController();
+
+  /// Track password input
   final passwordController = TextEditingController();
+
+  /// State key associated with login form
   final _formKey = GlobalKey<FormState>();
+
+  /// Instance of AuthService class defined in auth_service.dart
   final auth = AuthService();
 
+  /// Getter method to get location permission from the user.
+  /// Uses permission_handler package.
   void get _locationStatus async {
     PermissionStatus status = await Permission.locationWhenInUse.request();
     if (status == PermissionStatus.granted) {}
   }
 
+  /// Constructor for the Login screen of the app. Contains the login form.
   Login({super.key});
 
   @override
@@ -56,6 +66,7 @@ class Login extends StatelessWidget {
     );
   }
 
+  /// Login form design
   Widget _loginForm(BuildContext context) {
     return Form(
       key: _formKey,
@@ -86,6 +97,7 @@ class Login extends StatelessWidget {
     );
   }
 
+  /// TextFormField for Username input.
   Widget _usernameField() {
     return TextFormField(
       style: TextStyleSelection.primaryText,
@@ -103,6 +115,7 @@ class Login extends StatelessWidget {
     );
   }
 
+  /// TextFormField for Password input.
   Widget _passwordField() {
     return TextFormField(
       obscureText: true,
@@ -121,9 +134,12 @@ class Login extends StatelessWidget {
     );
   }
 
+  /// Helper method to perform authentication.
+  /// Uses function defined in auth_service.dart
   void _loginHelper(BuildContext context, VoidCallback ifOk) async {
     final response =
         await auth.login(usernameController.text, passwordController.text);
+    // If login successful on server side.
     if (response['status'] == 200) {
       // User loggedIn = response['user'];
       ifOk();
@@ -133,6 +149,9 @@ class Login extends StatelessWidget {
     }
   }
 
+  /// Button for login.
+  /// Custom widget defined in command_btn.dart
+  /// Calls login helper method when pressed
   Widget _loginButton(BuildContext context) {
     return CommandButton.dark(
       title: 'Login',

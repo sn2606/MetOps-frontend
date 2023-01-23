@@ -1,3 +1,4 @@
+/// Model for an authorized user of the app.
 class User {
   int id;
   String username;

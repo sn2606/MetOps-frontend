@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import './login.dart';
-import '../widgets/command_btn.dart';
-import '../utils/styles.dart';
 import '../utils/router.dart';
+import '../utils/styles.dart';
+import '../widgets/command_btn.dart';
 
+// Onboarding screen of the app.
 class WelcomePage extends StatelessWidget {
+  // Constructor for Onboarding screen of the app.
   const WelcomePage({super.key});
 
   @override

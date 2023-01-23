@@ -10,7 +10,11 @@ import '../utils/api.dart';
 import '../widgets/records/record_card.dart';
 import '../models/query_model.dart';
 
+/// Record screen of the app.
 class Records extends StatefulWidget {
+  /// Constructor for Record screen of the app.
+  /// Displays list of saved queries as gesture detecting cards.
+  /// Once a Record card is tapped, Record items are rendered in tabular format.
   const Records({super.key});
 
   @override
@@ -18,10 +22,18 @@ class Records extends StatefulWidget {
 }
 
 class _RecordsState extends State<Records> {
+  /// Response of retrieve saved Queries request.
   late http.Response _response;
+
+  /// Holds the body of response of retrieve saved Queries request (list of JSON format).
   late List<dynamic> _data;
+
+  /// List of saved Queries obtained after processing response.
   late Future<List<QueryModel>?> _futureQueryList;
 
+  /// Method to get retrieve saved Queries.
+  /// GET request made to backend Rest API.
+  /// Backend Rest API retrives saved items from database.
   Future<http.Response> _fetchQueryResult() async {
     try {
       final tokens = await SessionManager().get('tokens');
@@ -33,16 +45,17 @@ class _RecordsState extends State<Records> {
       // final refreshToken = tokens['refreshToken'];
       final uri =
           Uri.http(Endpoints.authority, Endpoints.queryList, queryParameters);
-      _response = await http.get(uri, headers: {
+      return await http.get(uri, headers: {
         HttpHeaders.contentTypeHeader: 'application/json',
         HttpHeaders.authorizationHeader: 'Bearer $accessToken'
       });
-      return _response;
     } catch (error) {
       return http.Response(error.toString(), 400);
     }
   }
 
+  /// Method to process result of retrieve saved Queries request.
+  /// QueryModel model instances (defined in query_model.dart) are created from JSON response body.
   Future<List<QueryModel>?> processResult() async {
     _response = await _fetchQueryResult();
     if (_response.statusCode == 200) {
@@ -78,6 +91,7 @@ class _RecordsState extends State<Records> {
           ),
           SizedBox(
             height: 550,
+            // ListView builder in a Future builder
             child: FutureBuilder<List<QueryModel>?>(
               future: _futureQueryList,
               builder: (context, snapshot) {
@@ -86,12 +100,12 @@ class _RecordsState extends State<Records> {
                   final queryList = snapshot.data;
                   if (queryList == null) {
                     returnWidget = const SizedBox(
-                      child: Text("No records yet!"),
+                      child: Text('No records yet!'),
                     );
                   } else {
                     if (queryList.isEmpty) {
                       returnWidget = const SizedBox(
-                        child: Text("No records yet!"),
+                        child: Text('No records yet!'),
                       );
                     } else {
                       returnWidget = ListView.builder(

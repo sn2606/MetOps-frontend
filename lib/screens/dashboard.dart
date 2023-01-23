@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../screens/main_screen.dart';
+import '../utils/router.dart';
+import '../utils/styles.dart';
 import '../screens/account.dart';
-import '../widgets/render_image.dart';
 import '../widgets/navigation_btn.dart';
+import '../widgets/render_image.dart';
 import '../widgets/dashboard/add_button.dart';
 import '../widgets/dashboard/dash_card.dart';
 import '../widgets/dashboard/weather_info.dart';
-import '../utils/styles.dart';
-import '../utils/router.dart';
 
+/// Dashboard of the app. Contains general summary information.
 class Dashboard extends StatefulWidget {
+  /// Constructor for dashboard of the app. Landing screen after login.
   const Dashboard({super.key});
 
   @override

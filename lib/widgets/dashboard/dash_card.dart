@@ -2,9 +2,19 @@ import 'package:flutter/material.dart';
 
 import '../../utils/styles.dart';
 
+/// Dashboard card widget
 class DashCard extends StatefulWidget {
+  /// Two types of Dashboard card.
+  /// One card that displayes weather information - 'info'.
+  /// Other card that displays the add button.
   final String type;
+
+  /// Content to display in the card.
   final Widget content;
+
+  /// Constructor for dashboard card widget.
+  /// Requires type of card - either 'info' or other.
+  /// And a widget containing the content to be displayed on the card.
   const DashCard({super.key, required this.type, required this.content});
 
   @override

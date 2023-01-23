@@ -9,10 +9,18 @@ import '../models/record.dart';
 import '../utils/api.dart';
 import '../widgets/records/record_builder.dart';
 
+/// Record Result screen of the app.
+/// Visible when user taps on a record on the Record screen.
 class RecordResult extends StatefulWidget {
   final int queryid;
   final double latitude;
   final double longitude;
+
+  /// Constructor Record Result screen of the app.
+  /// Renders saved RecordItems in tabular format
+  /// when user taps on a record on the Record screen.
+  /// Requires: Query ID of the saved query that corresponds to the saved records.
+  /// Latitude and Longitude of location
   const RecordResult({
     super.key,
     required this.queryid,
@@ -28,10 +36,19 @@ class _RecordResultState extends State<RecordResult> {
   late int _queryid;
   late double _latitude;
   late double _longitude;
+
+  /// Response of retrieve Record items request.
   late http.Response _response;
+
+  /// Holds the body of response of retrieve Record items Request (list of JSON format).
   late List<dynamic> _data;
+
+  /// List of record items obtained after processing response.
   late Future<List<RecordItem>?> _futureRecordItems;
 
+  /// Method to get retrieve saved Record items corresponding to a saved Query.
+  /// GET request made to backend Rest API.
+  /// Backend Rest API retrives saved items from database.
   Future<http.Response> _fetchRecordResult(
       double latitude, double longitude, int queryid) async {
     final queryParameters = {
@@ -43,20 +60,22 @@ class _RecordResultState extends State<RecordResult> {
       // final refreshToken = tokens['refreshToken'];
       final uri = Uri.http(
           Endpoints.authority, Endpoints.recordDetail, queryParameters);
-      _response = await http.get(uri, headers: {
+      return await http.get(uri, headers: {
         HttpHeaders.contentTypeHeader: 'application/json',
         HttpHeaders.acceptHeader: 'application/json',
         HttpHeaders.authorizationHeader: 'Bearer $accessToken'
       });
-      return _response;
     } catch (error) {
       return http.Response(error.toString(), 400);
     }
   }
 
+  /// Method to process result of retrieve Record items request.
+  /// RecordItem model instances (defined in record.dart) are created from JSON response body.
   Future<List<RecordItem>?> processResult(
       double latitude, double longitude, int queryid) async {
     _response = await _fetchRecordResult(latitude, longitude, queryid);
+    // If there is no error and everything goes over perfectly
     if (_response.statusCode == 200) {
       _data = jsonDecode(_response.body);
       return _data
