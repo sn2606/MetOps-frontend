@@ -19,11 +19,11 @@ class Login extends StatelessWidget {
   /// State key associated with login form
   final _formKey = GlobalKey<FormState>();
 
-  /// Instance of AuthService class defined in auth_service.dart
+  /// Instance of [AuthService] class defined in [auth_service.dart]
   final auth = AuthService();
 
   /// Getter method to get location permission from the user.
-  /// Uses permission_handler package.
+  /// Uses [permission_handler] package.
   void get _locationStatus async {
     PermissionStatus status = await Permission.locationWhenInUse.request();
     if (status == PermissionStatus.granted) {}
@@ -135,7 +135,7 @@ class Login extends StatelessWidget {
   }
 
   /// Helper method to perform authentication.
-  /// Uses function defined in auth_service.dart
+  /// Uses [login] function defined in [auth_service.dart]
   void _loginHelper(BuildContext context, VoidCallback ifOk) async {
     final response =
         await auth.login(usernameController.text, passwordController.text);
@@ -150,8 +150,8 @@ class Login extends StatelessWidget {
   }
 
   /// Button for login.
-  /// Custom widget defined in command_btn.dart
-  /// Calls login helper method when pressed
+  /// Custom widget defined in [command_btn.dart]
+  /// Calls [_loginHelper] method when pressed
   Widget _loginButton(BuildContext context) {
     return CommandButton.dark(
       title: 'Login',

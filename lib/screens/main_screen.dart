@@ -27,7 +27,7 @@ class _ScaffoldCustomState extends State<ScaffoldCustom> {
     const Records()
   ];
 
-  /// The index of screen bottomnavigationbar is focusing on.
+  /// The index of screen [bottomnavigationbar] is focusing on.
   late int _screenIndex;
 
   @override
@@ -36,7 +36,7 @@ class _ScaffoldCustomState extends State<ScaffoldCustom> {
     _screenIndex = widget.screenIndex;
   }
 
-  /// Display screen from _screens at index - int index.
+  /// Display screen from [_screens] at index [index].
   void _bindScreens(int index) {
     setState(() {
       _screenIndex = index;

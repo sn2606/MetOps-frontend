@@ -63,7 +63,7 @@ class _QueryResultState extends State<QueryResult> {
   }
 
   /// Method to process result of Query request.
-  /// RecordItem model instances (defined in record.dart) are created from JSON response body.
+  /// [RecordItem] model instances (defined in [record.dart]) are created from JSON response body.
   Future<List<RecordItem>?> processResult(
       double latitude, double longitude) async {
     _response = await _fetchQueryResult(latitude, longitude);

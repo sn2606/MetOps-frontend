@@ -55,7 +55,7 @@ class _RecordsState extends State<Records> {
   }
 
   /// Method to process result of retrieve saved Queries request.
-  /// QueryModel model instances (defined in query_model.dart) are created from JSON response body.
+  /// [QueryModel] model instances (defined in [query_model.dart]) are created from JSON response body.
   Future<List<QueryModel>?> processResult() async {
     _response = await _fetchQueryResult();
     if (_response.statusCode == 200) {

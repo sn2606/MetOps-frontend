@@ -16,11 +16,12 @@ class RecordResult extends StatefulWidget {
   final double latitude;
   final double longitude;
 
-  /// Constructor Record Result screen of the app.
-  /// Renders saved RecordItems in tabular format
-  /// when user taps on a record on the Record screen.
-  /// Requires: Query ID of the saved query that corresponds to the saved records.
-  /// Latitude and Longitude of location
+  /// Constructor for Record Result screen of the app.
+  /// Renders saved [RecordItem] instances in tabular format
+  /// when user taps on a record on this Record screen.
+  /// Requires:
+  /// 1. Query ID of the saved query that corresponds to the saved records.
+  /// 2. Latitude and Longitude of location
   const RecordResult({
     super.key,
     required this.queryid,
@@ -46,7 +47,7 @@ class _RecordResultState extends State<RecordResult> {
   /// List of record items obtained after processing response.
   late Future<List<RecordItem>?> _futureRecordItems;
 
-  /// Method to get retrieve saved Record items corresponding to a saved Query.
+  /// Method to get retrieve saved Record items corresponding to this saved Query.
   /// GET request made to backend Rest API.
   /// Backend Rest API retrives saved items from database.
   Future<http.Response> _fetchRecordResult(
@@ -71,7 +72,7 @@ class _RecordResultState extends State<RecordResult> {
   }
 
   /// Method to process result of retrieve Record items request.
-  /// RecordItem model instances (defined in record.dart) are created from JSON response body.
+  /// [RecordItem] model instances (defined in [record.dart]) are created from JSON response body.
   Future<List<RecordItem>?> processResult(
       double latitude, double longitude, int queryid) async {
     _response = await _fetchRecordResult(latitude, longitude, queryid);
