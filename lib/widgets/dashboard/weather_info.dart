@@ -157,7 +157,6 @@ class _WeatherInfoState extends State<WeatherInfo> {
               }
             }
           } else if (snapshot.hasError) {
-            print(snapshot.error);
             return const Center(
               child: Text('An error occured.'),
             );
