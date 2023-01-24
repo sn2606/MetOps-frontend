@@ -19,9 +19,9 @@
 
   <p align="center">
     MetOps is a state-of-the-art, fully integrated comprehensive solution presented as a substitute for the traditional MET stations used for field artillery atmospheric data collection.
-    <br />
+    <!-- <br />
     <a href="https://github.com/sn2606/MetOps-frontend"><strong>Explore the docs »</strong></a>
-    <br />
+    <br /> -->
     <br />
     <a href="https://github.com/sn2606/MetOps-frontend">View Demo</a>
     ·
