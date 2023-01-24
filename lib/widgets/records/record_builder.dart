@@ -2,28 +2,35 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_session_manager/flutter_session_manager.dart';
-import 'package:http/http.dart' as http;
-import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:cr_file_saver/file_saver.dart';
 import 'package:csv/csv.dart';
 import 'package:external_path/external_path.dart';
-import 'package:cr_file_saver/file_saver.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_session_manager/flutter_session_manager.dart';
+import 'package:http/http.dart' as http;
 
-import '../../models/record.dart';
-import '../../utils/api.dart';
-import '../../utils/styles.dart';
-import '../../utils/router.dart';
-import '../../screens/main_screen.dart';
 import '../action_btn_filled.dart';
 import '../action_btn_outlined.dart';
+import '../../models/record.dart';
+import '../../screens/main_screen.dart';
+import '../../utils/api.dart';
+import '../../utils/router.dart';
+import '../../utils/styles.dart';
 
+/// Widget that renders a list of record items in a tabular format.
+/// Used in record_result.dart.
 class RecordTableBuilder extends StatefulWidget {
+  /// Future instance that contains the list of record items to be rendered.
   final Future<List<RecordItem>?> futureRecordItems;
   final double latitude;
   final double longitude;
+
+  /// ID of saved Query corresponding to the records. Used in [_delete]
   final int queryid;
 
+  /// Constructor of widget that renders a list of record items in a tabular format.
+  /// Used to display fetched result of a retrieve [RecordItem] request.
   const RecordTableBuilder({
     super.key,
     required this.futureRecordItems,
@@ -37,8 +44,11 @@ class RecordTableBuilder extends StatefulWidget {
 }
 
 class _RecordTableBuilderState extends State<RecordTableBuilder> {
+  /// Timer for easy_loading package usage
   Timer? _timer;
 
+  /// Delete saved instances of Query and associated Records from the database.
+  /// Method is called when user presses the delete button.
   void _delete(BuildContext context, VoidCallback ifOk) async {
     final session = SessionManager();
     final tokens = await session.get('tokens');
@@ -54,7 +64,7 @@ class _RecordTableBuilderState extends State<RecordTableBuilder> {
       }).toList()
     };
 
-    // save the above constructed data
+    // delete using the above constructed data
     final uri = Uri.http(Endpoints.authority, Endpoints.deleteRecord);
     http.Response response = await http.delete(
       uri,
@@ -66,6 +76,7 @@ class _RecordTableBuilderState extends State<RecordTableBuilder> {
       body: jsonEncode(saveBody),
     );
 
+    // If deletion is successful
     if (response.statusCode == 200) {
       EasyLoading.showSuccess('Deleted');
       EasyLoading.dismiss();
@@ -75,9 +86,14 @@ class _RecordTableBuilderState extends State<RecordTableBuilder> {
     }
   }
 
+  /// Export saved instances of Query and associated Records to a CSV file.
+  /// Method is called when user presses the export button.
   void _export(List<RecordItem> data, VoidCallback ifOk) async {
+    // Check if storage permission is granted using cr_file_saver package.
     bool granted = await CRFileSaver.requestWriteExternalStoragePermission();
     if (granted) {
+      EasyLoading.show(status: 'Exporting...');
+      // Prepare CSV data to save.
       List<List<dynamic>> csvData = [];
       List<dynamic> header = [];
       header.add('ID');
@@ -103,6 +119,7 @@ class _RecordTableBuilderState extends State<RecordTableBuilder> {
         csvData.add(row);
       }
 
+      // Convert prepared data to CSV and save it.
       var csv = const ListToCsvConverter().convert(csvData);
       var path = await ExternalPath.getExternalStoragePublicDirectory(
           ExternalPath.DIRECTORY_DOWNLOADS);
@@ -111,6 +128,11 @@ class _RecordTableBuilderState extends State<RecordTableBuilder> {
       File f = File('$file/${widget.latitude},${widget.longitude}.csv');
 
       f.writeAsString(csv);
+
+      EasyLoading.showSuccess('Exported');
+      EasyLoading.dismiss();
+    } else {
+      EasyLoading.showError('Permission not granted.');
     }
   }
 
@@ -129,7 +151,7 @@ class _RecordTableBuilderState extends State<RecordTableBuilder> {
   Widget build(BuildContext context) {
     return FutureBuilder<List<RecordItem>?>(
       future: widget
-          .futureRecordItems, // a previously-obtained Future<String> or null
+          .futureRecordItems, // a previously-obtained Future<List<RecordItem>> or null
       builder: (context, snapshot) {
         List<Widget> children;
         if (snapshot.hasData) {
@@ -218,6 +240,7 @@ class _RecordTableBuilderState extends State<RecordTableBuilder> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    // Export button
                     ActionButtonFilled(
                       title: 'Export',
                       onPressed: () {
@@ -230,6 +253,7 @@ class _RecordTableBuilderState extends State<RecordTableBuilder> {
                         );
                       },
                     ),
+                    // Delete button
                     ActionButtonOutlined(
                       title: 'Delete',
                       onPressed: () {
@@ -256,7 +280,9 @@ class _RecordTableBuilderState extends State<RecordTableBuilder> {
             SizedBox(
               width: 60,
               height: 60,
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: ColorSelection.primary,
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 16),

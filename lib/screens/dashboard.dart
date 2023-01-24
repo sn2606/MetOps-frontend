@@ -124,7 +124,7 @@ class _DashboardState extends State<Dashboard> {
                     children: [
                       NavigationButton(
                         title: 'Observation History',
-                        action: () => Navigate.pushPage(
+                        navigation: () => Navigate.pushPage(
                           context,
                           const ScaffoldCustom(
                             screenIndex: 2,
@@ -133,7 +133,7 @@ class _DashboardState extends State<Dashboard> {
                       ),
                       NavigationButton(
                         title: 'Account',
-                        action: () => Navigate.pushPage(
+                        navigation: () => Navigate.pushPage(
                           context,
                           const Account(),
                         ),

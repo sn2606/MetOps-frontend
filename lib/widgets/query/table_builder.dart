@@ -3,23 +3,28 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 
-import '../../models/record.dart';
-import '../../utils/api.dart';
-import '../../utils/styles.dart';
-import '../../utils/router.dart';
-import '../../screens/main_screen.dart';
 import '../action_btn_filled.dart';
 import '../action_btn_outlined.dart';
+import '../../models/record.dart';
+import '../../screens/main_screen.dart';
+import '../../utils/api.dart';
+import '../../utils/router.dart';
+import '../../utils/styles.dart';
 
+/// Widget that renders a list of record items in a tabular format.
+/// Used in query_result.dart
 class TableBuilder extends StatefulWidget {
+  /// Future instance that contains the list of record items to be rendered.
   final Future<List<RecordItem>?> futureRecordItems;
   final double latitude;
   final double longitude;
 
+  /// Constructor of widget that renders a list of record items in a tabular format.
+  /// Used to display fetched result of a query request.
   const TableBuilder({
     super.key,
     required this.futureRecordItems,
@@ -32,14 +37,19 @@ class TableBuilder extends StatefulWidget {
 }
 
 class _TableBuilderState extends State<TableBuilder> {
+  /// Timer for easy_loading package usage
   Timer? _timer;
 
+  /// Saves list of record items into the database.
+  /// Method is called when save button is clicked.
   void _save(BuildContext context, VoidCallback ifOk) async {
     final session = SessionManager();
     final tokens = await session.get('tokens');
     final accessToken = tokens['accessToken'];
 
     EasyLoading.show(status: 'Saving...');
+
+    // Construct data to be saved.
     List<RecordItem>? records = await widget.futureRecordItems;
     final Map<String, dynamic> saveBody = {
       'user': {
@@ -76,10 +86,11 @@ class _TableBuilderState extends State<TableBuilder> {
       body: jsonEncode(saveBody),
     );
 
+    // If saved successfully
     if (response.statusCode == 200) {
       EasyLoading.showSuccess('Saved');
       EasyLoading.dismiss();
-      ifOk();
+      ifOk(); // Navigate to records page.
     } else {
       EasyLoading.showError('An error occured');
     }
@@ -100,7 +111,7 @@ class _TableBuilderState extends State<TableBuilder> {
   Widget build(BuildContext context) {
     return FutureBuilder<List<RecordItem>?>(
       future: widget
-          .futureRecordItems, // a previously-obtained Future<String> or null
+          .futureRecordItems, // a previously-obtained Future<List<RecordItem>> or null
       builder: (context, snapshot) {
         List<Widget> children;
         if (snapshot.hasData) {
@@ -120,6 +131,7 @@ class _TableBuilderState extends State<TableBuilder> {
                   child: DataTable(
                     dataTextStyle: TextStyleSelection.primaryText,
                     columns: const [
+                      // Table header
                       DataColumn(
                         label: Expanded(
                           child: Text('Height (m)'),
@@ -156,6 +168,7 @@ class _TableBuilderState extends State<TableBuilder> {
                         ),
                       ),
                     ],
+                    // Table content
                     rows: [
                       ...snapshot.data!.map((item) {
                         return DataRow(cells: [
@@ -181,6 +194,7 @@ class _TableBuilderState extends State<TableBuilder> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  // Save button
                   ActionButtonFilled(
                     title: 'Save',
                     onPressed: () => _save(context, () {
@@ -190,6 +204,7 @@ class _TableBuilderState extends State<TableBuilder> {
                       );
                     }),
                   ),
+                  // Cancel Button
                   ActionButtonOutlined(
                     title: 'Cancel',
                     onPressed: () {
@@ -208,11 +223,14 @@ class _TableBuilderState extends State<TableBuilder> {
             const Text('Sorry, there has been an error on our side!'),
           ];
         } else {
+          // While it is loading.
           children = const <Widget>[
             SizedBox(
               width: 60,
               height: 60,
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: ColorSelection.primary,
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 16),

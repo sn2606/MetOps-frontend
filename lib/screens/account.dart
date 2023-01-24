@@ -42,15 +42,15 @@ class Account extends StatelessWidget {
               children: [
                 NavigationButton(
                   title: 'Units',
-                  action: () {},
+                  navigation: () {},
                 ),
                 NavigationButton(
                   title: 'Location',
-                  action: () {},
+                  navigation: () {},
                 ),
                 NavigationButton(
                   title: 'Privacy',
-                  action: () {},
+                  navigation: () {},
                 ),
                 const SizedBox(
                   height: 10,
@@ -63,7 +63,7 @@ class Account extends StatelessWidget {
                 ),
                 NavigationButton.alert(
                   title: 'Sign Out',
-                  action: () => logoutUser(context),
+                  navigation: () => logoutUser(context),
                 ),
               ],
             ),

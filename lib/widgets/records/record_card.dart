@@ -3,13 +3,24 @@ import 'package:intl/intl.dart';
 
 import '../../models/query_model.dart';
 import '../../screens/records_result.dart';
-import '../../utils/styles.dart';
 import '../../utils/router.dart';
+import '../../utils/styles.dart';
 
+/// Gesture detecting widget that displays information of a saved query as a card.
+/// Visible on the Observation History / Record screen.
 class RecordCard extends StatelessWidget {
+  /// List of queries from the database.
   final List<QueryModel> queryList;
+
+  /// Index of the current query to be displayed in this list.
   final int index;
 
+  /// Constructor for gesture detecting widget that displays information of a saved query as a card.
+  /// Requires
+  /// 1. A list of queries from the database.
+  /// 2. Index of the current query to be displayed.
+  ///
+  /// To do: Make the solution more elegant than passing a list of queries - state mgmt.
   const RecordCard({super.key, required this.queryList, required this.index});
 
   @override
@@ -61,7 +72,7 @@ class RecordCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '${queryList[index].latitude}, ${queryList[index].longitude}',
+                          '${queryList[index].latitude.toStringAsFixed(2)}, ${queryList[index].longitude.toStringAsFixed(2)}',
                           style: TextStyleSelection.recordCardTitle,
                         ),
                         Text(

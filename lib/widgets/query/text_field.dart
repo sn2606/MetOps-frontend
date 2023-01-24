@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../../utils/styles.dart';
 
+/// Custom design of textfield for Latitude and Longitude input.
 class TextFieldCustom extends StatelessWidget {
+  /// Hint text to be displayed in the textfield
   final String hint;
+
+  /// Track Latitude or Longitude
   final TextEditingController controller;
 
+  /// Constructor for custom textfield widget for Latitude and Longitude input.
   const TextFieldCustom(
       {super.key, required this.hint, required this.controller});
 
@@ -16,6 +21,7 @@ class TextFieldCustom extends StatelessWidget {
       width: 150,
       height: 50,
       child: TextField(
+        keyboardType: TextInputType.number,
         controller: controller,
         textAlign: TextAlign.left,
         textAlignVertical: TextAlignVertical.center,

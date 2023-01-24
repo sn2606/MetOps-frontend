@@ -6,6 +6,9 @@ import '../../utils/styles.dart';
 import '../../utils/router.dart';
 import '../../services/auth_service.dart';
 
+/// Drawer of the app.
+/// Used in custom scaffold of the main screen.
+/// Abstracted to make code more readable.
 class DrawerCustom extends StatelessWidget {
   const DrawerCustom({super.key});
 

@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 
 import '../utils/styles.dart';
 
+/// Widget for a call to action [ElevatedButton] button.
+/// Filled with [ColorSelection.primary] color.
 class ActionButtonFilled extends StatelessWidget {
+  /// Text to be displayed on this button.
   final String title;
+
+  /// Action method called when this button is pressed.
   final VoidCallback onPressed;
 
+  /// Constructor for a custom call to action [ElevatedButton] button.
+  /// Filled with [ColorSelection.primary] color.
   const ActionButtonFilled({
     super.key,
     required this.title,

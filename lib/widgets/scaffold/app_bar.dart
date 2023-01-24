@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import '../../screens/account.dart';
 import '../../utils/router.dart';
 
+/// App Bar of the app.
+/// Used in custom scaffold of the main screen.
+/// Abstracted to make code more readable.
 class AppBarCustom extends StatefulWidget with PreferredSizeWidget {
   const AppBarCustom({super.key});
 

@@ -2,12 +2,23 @@ import 'package:flutter/material.dart';
 
 import '../utils/styles.dart';
 
+/// Widget for a command [ElevatedButton] button.
+/// Used for navigating between screens _before Login_.
 class CommandButton extends StatelessWidget {
+  /// Text to be displayed on this button.
   final String title;
+
+  /// Background color of this button.
   final Color bgColor;
+
+  /// Foreground color of this button.
   final Color fgColor;
+
+  /// Navigation method called when this button is pressed.
   final VoidCallback navigate;
 
+  /// Constructor for a custom *light* command [ElevatedButton] button.
+  /// Filled with [ColorSelection.neutral] color.
   const CommandButton.light({
     super.key,
     this.bgColor = ColorSelection.neutral,
@@ -15,6 +26,9 @@ class CommandButton extends StatelessWidget {
     required this.title,
     required this.navigate,
   });
+
+  /// Constructor for a custom *dark* command [ElevatedButton] button.
+  /// Filled with [ColorSelection.primary] color.
   const CommandButton.dark({
     super.key,
     this.bgColor = ColorSelection.primary,
